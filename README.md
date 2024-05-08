@@ -74,6 +74,9 @@ You can also download the latest build from [GitHub Actions](https://www.github.
   pnpm tauri build
   # Or if you have tauri CLI installed
   cargo tauri build
+
+  # Add the "offline" feature to bundle PokeRogue with the binary
+  cargo tauri build --features offline
   ```
 
 your built files will be in the `src-tauri/target` directory.
@@ -82,6 +85,7 @@ your built files will be in the `src-tauri/target` directory.
 
 - [ ] Bundled offline mode (directly in the binary, eg. should work on an airgapped machine)
 - [ ] Downloadable offline mode (update-able without redownloading a new binary every time)
+- [ ] Separate "lite" builds that are online-only
 - [ ] Plugin system/support
 - [ ] Theme system/support
 

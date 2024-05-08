@@ -6,7 +6,10 @@ pub fn run() {
   let config = config::get_config();
 
   if config.offline.unwrap_or(false) {
-    warn!("Offline mode is unimplemented!");
+    #[cfg(not(feature = "offline"))]
+    {
+      error!("You are running RogueTop Lite, which means you are online-only.")
+    }
   }
 
   tauri::Builder::default()

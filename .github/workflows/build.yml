@@ -98,6 +98,7 @@ jobs:
         run: cargo tauri build --target ${{ matrix.config.target }} ${{ matrix.config.target == 'aarch64-pc-windows-msvc' && '--bundles nsis' || '' }}
         env:
           RUSTFLAGS: -Awarnings
+          CC: clang
 
       # For portable installs
       - name: Create empty config.json
@@ -118,7 +119,7 @@ jobs:
 
       - name: (Linux) Compress build
         if: matrix.config.platform == 'ubuntu-latest'
-        run: cd src-tauri/target/${{ matrix.config.target }}/release && tar -czvf roguetop.tar.gz pokerogue config.json
+        run: cd src-tauri/target/${{ matrix.config.target }}/release && tar -czvf roguetop.tar.gz roguetop config.json
 
       # Windows portable
       - name: (Windows) Upload portable

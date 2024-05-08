@@ -50,6 +50,6 @@ macro_rules! warn {
 #[macro_export]
 macro_rules! error {
   ($($arg:tt)*) => {
-    $crate::util::log::log(format!($($arg)*), Some($crate::log::log::LogKind::Error))
+    $crate::util::log::log(format!($($arg)*), Some($crate::util::log::LogKind::Error))
   };
 }

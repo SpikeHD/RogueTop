@@ -4,9 +4,9 @@
   "identifier": "com.spikehd.roguetop",
   "build": {
     "beforeDevCommand": "pnpm build",
-    "devUrl": "https://pokerogue.net/",
+    "devUrl": "http://localhost:1420",
     "beforeBuildCommand": "pnpm build",
-    "frontendDist": "https://pokerogue.net/"
+    "frontendDist": "dist"
   },
   "app": {
     "windows": [
