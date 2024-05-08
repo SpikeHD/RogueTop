@@ -66,11 +66,17 @@ function App() {
             onChange={() => {
               setAlwaysUse(!alwaysUse)
               setConfig('skip_splash', !alwaysUse)
-            }} />
+            }}
+          />
         </div>
       </div>
 
-      <div id="play">
+      <div
+        id="play"
+        onClick={() => {
+          invoke('launch')
+        }
+      }>
         <button>Play</button>
       </div>
     </div>

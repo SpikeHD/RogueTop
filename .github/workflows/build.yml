@@ -46,6 +46,10 @@ jobs:
             target: 'x86_64-pc-windows-msvc'
           - platform: windows-latest
             target: 'aarch64-pc-windows-msvc'
+        
+        features:
+          - 'default'
+          - 'offline'
 
     steps:
       - uses: actions-rust-lang/setup-rust-toolchain@v1.8
@@ -92,10 +96,18 @@ jobs:
 
       - name: Install dependencies
         run: pnpm install
+
+      - name: (Windows) If we are building the offline version, bootstrap PokeRogue locally
+        if: matrix.features == 'offline'
+        run: .\bootstrap_pokerogue.cmd
+
+      - name: (Unix) If we are building the offline version, bootstrap PokeRogue locally
+        if: matrix.features == 'offline'
+        run: ./bootstrap_pokerogue.sh
           
       - name: Build
         # If we are compiling for Windows ARM, we can only support NSIS
-        run: cargo tauri build --target ${{ matrix.config.target }} ${{ matrix.config.target == 'aarch64-pc-windows-msvc' && '--bundles nsis' || '' }}
+        run: cargo tauri build --target ${{ matrix.config.target }} ${{ matrix.config.target == 'aarch64-pc-windows-msvc' && '--bundles nsis' || '' }} --features ${{ matrix.features }}
         env:
           RUSTFLAGS: -Awarnings
           CC: clang
@@ -126,7 +138,7 @@ jobs:
         if: matrix.config.platform == 'windows-latest'
         uses: actions/upload-artifact@v4
         with:
-          name: roguetop-${{ matrix.config.target }}-portable
+          name: roguetop-${{ matrix.features }}-${{ matrix.config.target }}-portable
           path: RogueTop.zip
 
       # Windows MSI
@@ -134,7 +146,7 @@ jobs:
         if: matrix.config.platform == 'windows-latest'
         uses: actions/upload-artifact@v4
         with:
-          name: roguetop-${{ matrix.config.target }}-msi
+          name: roguetop-${{ matrix.features }}-${{ matrix.config.target }}-msi
           path: src-tauri/target/${{ matrix.config.target }}/release/bundle/msi/*.msi
 
       # Windows ARM only supports NSIS right now, but we should upload that too
@@ -142,7 +154,7 @@ jobs:
         if: matrix.config.platform == 'windows-latest'
         uses: actions/upload-artifact@v4
         with:
-          name: roguetop-${{ matrix.config.target }}-nsis
+          name: roguetop-${{ matrix.features }}-${{ matrix.config.target }}-nsis
           path: src-tauri/target/${{ matrix.config.target }}/release/bundle/nsis/*.exe
 
       # Ubuntu portable
@@ -150,7 +162,7 @@ jobs:
         if: matrix.config.platform == 'ubuntu-latest'
         uses: actions/upload-artifact@v4
         with:
-          name: roguetop-${{ matrix.config.target }}-portable
+          name: roguetop-${{ matrix.features }}-${{ matrix.config.target }}-portable
           path: src-tauri/target/${{ matrix.config.target }}/release/roguetop.tar.gz
 
       # Ubuntu deb
@@ -158,19 +170,19 @@ jobs:
         if: matrix.config.platform == 'ubuntu-latest'
         uses: actions/upload-artifact@v4
         with:
-          name: roguetop-${{ matrix.config.target }}-deb
+          name: roguetop-${{ matrix.features }}-${{ matrix.config.target }}-deb
           path: src-tauri/target/${{ matrix.config.target }}/release/bundle/deb/*.deb
 
       - name: (Linux) Upload .appimage
         if: matrix.config.platform == 'ubuntu-latest'
         uses: actions/upload-artifact@v4
         with:
-          name: roguetop-${{ matrix.config.target }}-appimage
+          name: roguetop-${{ matrix.features }}-${{ matrix.config.target }}-appimage
           path: src-tauri/target/${{ matrix.config.target }}/release/bundle/appimage/*.AppImage
 
       - name: (MacOS) Upload .dmg
         if: matrix.config.platform == 'macos-latest'
         uses: actions/upload-artifact@v4
         with:
-          name: roguetop-${{ matrix.config.target }}-dmg
+          name: roguetop-${{ matrix.features }}-${{ matrix.config.target }}-dmg
           path: src-tauri/target/${{ matrix.config.target }}/release/bundle/dmg/*.dmg
