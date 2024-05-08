@@ -34,5 +34,13 @@ pub fn launch(win: tauri::Window) -> bool {
     win.navigate(url);
   }
 
+  // If we are offline, start the offline server in a new thread
+  #[cfg(feature = "offline")]
+  if config.offline.unwrap_or(false) {
+    std::thread::spawn(|| {
+      offline::server::start_server();
+    });
+  }
+
   true
 }

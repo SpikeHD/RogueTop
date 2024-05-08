@@ -135,7 +135,7 @@ jobs:
 
       - name: (Linux) Compress build
         if: matrix.config.platform == 'ubuntu-latest'
-        run: cd src-tauri/target/${{ matrix.config.target }}/release && tar -czvf roguetop.tar.gz roguetop config.json
+        run: cd src-tauri/target/${{ matrix.config.target }}/release && tar -czvf roguetop.tar.gz poke-rogue config.json
 
       # Windows portable
       - name: (Windows) Upload portable
@@ -176,6 +176,14 @@ jobs:
         with:
           name: roguetop-${{ matrix.features }}-${{ matrix.config.target }}-deb
           path: src-tauri/target/${{ matrix.config.target }}/release/bundle/deb/*.deb
+
+      # Redhat rpm
+      - name: (Linux) Upload .rpm
+        if: matrix.config.platform == 'ubuntu-latest'
+        uses: actions/upload-artifact@v4
+        with:
+          name: roguetop-${{ matrix.features }}-${{ matrix.config.target }}-rpm
+          path: src-tauri/target/${{ matrix.config.target }}/release/bundle/rpm/*.rpm
 
       - name: (Linux) Upload .appimage
         if: matrix.config.platform == 'ubuntu-latest'

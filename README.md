@@ -26,7 +26,7 @@
 Download the latest [release for your platform](https://github.com/SpikeHD/RogueTop/releases). The file you download depends on your operating system:
 
 * For Windows, download the `.msi` installer file, or the `pc-windows` ZIP file. Builds are also provided for ARM64.
-* For Linux, download the `.deb` installer file if on a Debian-based system, or the `unknown-linux` ZIP file. ~~Builds are also provided for ARMv7 and ARM64.~~ (coming soon)
+* For Linux, download the `.deb` or `.rpm` installer files, or the `unknown-linux` ZIP file. ~~Builds are also provided for ARMv7 and ARM64.~~ (coming soon)
 * For MacOS, download the `.dmg` installer file, or the `apple-darwin` ZIP file. Builds are provided for both Intel-based (x86_64) and M-series-based MacOS systems (arm64).
 
 Releases also come in two flavors, regular and "offline". Regular versions are very lightweight, and will load the online version of PokeRogue. Offline versions are larger, but contain the entirety of PokeRogue within the binary, and can be run without an internet connection!

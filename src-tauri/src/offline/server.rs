@@ -13,7 +13,7 @@ pub fn start_server() {
     let actual_path = if path == "/" || path == "" {
       "index.html"
     } else {
-      path.clone()
+      path
     };
 
     let file = GameFiles::get(actual_path);
