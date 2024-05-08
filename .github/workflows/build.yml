@@ -97,17 +97,9 @@ jobs:
       - name: Install dependencies
         run: pnpm install
 
-      - name: (Windows) If we are building the offline version, bootstrap PokeRogue locally
+      - name: (Offline) If we are building the offline version, bootstrap PokeRogue locally
         if: matrix.features == 'offline' && matrix.config.platform == 'windows-latest'
-        run: .\bootstrap_pokerogue.cmd
-
-      - name: (Unix) Make PokeRogue scripts executable
-        if: matrix.config.platform != 'windows-latest'
-        run: chmod +x bootstrap_pokerogue.sh
-
-      - name: (Unix) If we are building the offline version, bootstrap PokeRogue locally
-        if: matrix.features == 'offline' && matrix.config.platform != 'windows-latest'
-        run: ./bootstrap_pokerogue.sh
+        run: git clone https://github.com/pagefaultgames/pokerogue.git src-ext --depth 1 && cd src-ext && pnpm install && pnpm build && cd ..
           
       - name: Build
         # If we are compiling for Windows ARM, we can only support NSIS
