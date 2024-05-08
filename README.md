@@ -16,7 +16,7 @@
 </div>
 
 <div align="center">
- Online and offline PokeRogue client for Windows, Linux and MacOS.
+ Online and offline [PokeRogue](https://github.com/pagefaultgames/pokerogue) client for Windows, Linux and MacOS.
  <br />
  https://discord.gg/agQ9mRdHMZ
 </div>
