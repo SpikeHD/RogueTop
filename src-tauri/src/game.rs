@@ -2,9 +2,11 @@ use std::str::FromStr;
 use tauri::Manager;
 
 use crate::config;
+#[cfg(feature = "offline")]
+use crate::offline;
 
 #[tauri::command]
-pub fn launch(win: tauri::Window) -> bool {
+pub fn launch(app: tauri::AppHandle) -> bool {
   let config = config::get_config();
   let url;
 
@@ -30,7 +32,7 @@ pub fn launch(win: tauri::Window) -> bool {
     }
   }
 
-  if let Some(mut win) = win.get_webview_window("main") {
+  if let Some(mut win) = app.get_webview_window("main") {
     win.navigate(url);
   }
 

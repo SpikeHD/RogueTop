@@ -7,11 +7,14 @@ import './App.css'
 function App() {
   const [selected, setSelected] = useState('online')
   const [alwaysUse, setAlwaysUse] = useState(true)
+  const [supportsOffline, setSupportsOffline] = useState(false)
 
   // Load the config
   useEffect(() => {
     (async () => {
       const config: Config = await invoke('get_config')
+      const supportsOffline: boolean = await invoke('poke_supports_offline')
+      setSupportsOffline(supportsOffline)
       setAlwaysUse(config.skip_splash)
       setSelected(config.offline ? 'offline' : 'online')
     })()
@@ -43,20 +46,24 @@ function App() {
           </div>
         </div>
 
-        <div
-          class={'mode ' + (selected === 'offline' ? 'selected' : '')}
-          id="offline"
-          onClick={() => {
-            setSelected('offline')
-            setConfig('offline', true)
-          }}
-        >
-          <span class="mode-title">Offline (LOCAL)</span>
+        {
+          supportsOffline && (
+            <div
+              class={'mode ' + (selected === 'offline' ? 'selected' : '')}
+              id="offline"
+              onClick={() => {
+                setSelected('offline')
+                setConfig('offline', true)
+              }}
+            >
+              <span class="mode-title">Offline (LOCAL)</span>
 
-          <div class="mode-img">
-            <img src="arrow.svg" alt="Offline" />
-          </div>
-        </div>
+              <div class="mode-img">
+                <img src="arrow.svg" alt="Offline" />
+              </div>
+            </div>
+          )
+        }
 
         <div class="mode-lock">
           <Checkbox

@@ -1,9 +1,10 @@
 use std::str::FromStr;
 
-use tauri::{Manager, Url};
+use tauri::Url;
 
 mod config;
 mod game;
+#[cfg(feature = "offline")]
 mod offline;
 mod util;
 
@@ -13,22 +14,11 @@ static LOCAL_URL: &str = "http://localhost:7653";
 #[cfg_attr(mobile, tauri::mobile_entry_point)]
 pub fn run() {
   let config = config::get_config();
-  let mut maybe_navigate: Option<Url> = None;
-
-  if config.skip_splash.unwrap_or(false) {
-    // If online, point context to the site, otherwise point to the soon-to-be-running local version
-    if config.offline.unwrap_or(false) {
-      if let Ok(url) = Url::from_str(LOCAL_URL) {
-        maybe_navigate = Some(url);
-      }
-    } else if let Ok(url) = Url::from_str(REMOTE_URL) {
-      maybe_navigate = Some(url);
-    }
-  }
 
   tauri::Builder::default()
     .plugin(tauri_plugin_shell::init())
     .invoke_handler(tauri::generate_handler![
+      util::support::supports_offline,
       config::read_config_file,
       config::write_config_file,
       config::default_config,
@@ -36,8 +26,25 @@ pub fn run() {
       game::launch
     ])
     .setup(move |app| {
-      if let Some(navigate) = maybe_navigate {
-        game::launch(app.get_window("main").unwrap(), navigate);
+      if config.skip_splash.unwrap_or(false) {
+        if config.offline.unwrap_or(false) {
+          #[cfg(feature = "offline")]
+          game::launch(app.handle().clone());
+
+          #[cfg(not(feature = "offline"))]
+          {
+            warn!("Offline mode requested, but feature is not enabled. Opening options panel instead.");
+
+            // Write to the config that we should run in online mode
+            let mut config = config::get_config();
+            config.offline = Some(false);
+            let config_str = serde_json::to_string(&config).expect("Failed to serialize config!");
+
+            config::write_config_file(config_str);
+          }
+        } else {
+          game::launch(app.handle().clone());
+        }
       }
 
       Ok(())
