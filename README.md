@@ -69,13 +69,18 @@ You can also download the latest build from [GitHub Actions](https://www.github.
   cd RogueTop
   pnpm install
   ```
-3. Build it!
+3. (If bundling for offline mode, NOT required) run the bootstrap script
+  ```sh
+  # This will clone and build the entirety of PokeRogue into ./src-ext
+  ./bootstrap_pokerogue[.sh|.cmd]
+  ```
+4. Build it!
   ```sh
   pnpm tauri build
   # Or if you have tauri CLI installed
   cargo tauri build
 
-  # Add the "offline" feature to bundle PokeRogue with the binary
+  # If bundling for offline mode, add the "offline" feature
   cargo tauri build --features offline
   ```
 
