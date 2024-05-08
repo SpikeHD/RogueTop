@@ -98,11 +98,11 @@ jobs:
         run: pnpm install
 
       - name: (Windows) If we are building the offline version, bootstrap PokeRogue locally
-        if: matrix.features == 'offline'
+        if: matrix.features == 'offline' && matrix.config.platform == 'windows-latest'
         run: .\bootstrap_pokerogue.cmd
 
       - name: (Unix) If we are building the offline version, bootstrap PokeRogue locally
-        if: matrix.features == 'offline'
+        if: matrix.features == 'offline' && matrix.config.platform != 'windows-latest'
         run: ./bootstrap_pokerogue.sh
           
       - name: Build
