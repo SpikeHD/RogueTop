@@ -14,6 +14,11 @@ pub fn run() {
 
   tauri::Builder::default()
     .plugin(tauri_plugin_shell::init())
+    .invoke_handler(tauri::generate_handler![
+      config::read_config_file,
+      config::write_config_file,
+      config::default_config,
+    ])
     .run(tauri::generate_context!())
-    .expect("error while running tauri application");
+    .expect("error while running application");
 }
