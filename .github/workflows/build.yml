@@ -98,7 +98,7 @@ jobs:
         run: pnpm install
 
       - name: (Offline) If we are building the offline version, bootstrap PokeRogue locally
-        if: matrix.features == 'offline' && matrix.config.platform == 'windows-latest'
+        if: matrix.features == 'offline'
         run: git clone https://github.com/pagefaultgames/pokerogue.git src-ext --depth 1 && cd src-ext && pnpm install && pnpm build && cd ..
           
       - name: Build
