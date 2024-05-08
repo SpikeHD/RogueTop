@@ -1,8 +1,6 @@
 use std::{fs, path::PathBuf};
-use serde::Serialize;
-use serde_json::Serializer;
 
-use crate::config::{self, get_config};
+use crate::config::{self};
 use crate::log;
 
 pub fn get_config_dir() -> PathBuf {

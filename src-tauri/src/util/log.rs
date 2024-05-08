@@ -9,7 +9,6 @@ pub enum LogKind {
   Error,
 }
 
-
 pub fn log(s: impl AsRef<str> + Display, kind: Option<LogKind>) {
   let status = match kind {
     Some(LogKind::Info) => "INFO".blue(),
