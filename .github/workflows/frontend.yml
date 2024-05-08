@@ -1,0 +1,44 @@
+name: Check frontend
+
+on:
+  workflow_dispatch:
+  push:
+    paths-ignore:
+      - '**.lock'
+      - '**.rs'
+      - '**.toml'
+  pull_request:
+    paths-ignore:
+      - '**.lock'
+      - '**.rs'
+      - '**.toml'
+
+concurrency:
+  group: ${{ github.ref }}-${{ github.workflow }}
+  cancel-in-progress: true
+
+env:
+  CARGO_INCREMENTAL: 0
+
+jobs:
+  tsc-eslint-checks:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Install Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: latest
+
+      - uses: actions/checkout@v4
+      - uses: pnpm/action-setup@v3
+        with:
+          version: latest
+
+      - name: Install modules
+        run: pnpm install
+
+      - name: Run esbuild
+        run: pnpm build:js
+
+      - name: Run ESLint
+        run: pnpm eslint ./src
