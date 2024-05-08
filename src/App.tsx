@@ -14,7 +14,7 @@ function App() {
       const config: Config = await invoke('get_config')
       setAlwaysUse(config.skip_splash)
       setSelected(config.offline ? 'offline' : 'online')
-    })();
+    })()
   })
   
   const setConfig = async (option: keyof Config, value: Config[keyof Config]) => {
@@ -29,7 +29,7 @@ function App() {
     <div class="container">
       <div class="mode-select">
         <div
-          class={"mode " + (selected === 'online' ? 'selected' : '')}
+          class={'mode ' + (selected === 'online' ? 'selected' : '')}
           id="online"
           onClick={() => {
             setSelected('online')
@@ -44,7 +44,7 @@ function App() {
         </div>
 
         <div
-          class={"mode " + (selected === 'offline' ? 'selected' : '')}
+          class={'mode ' + (selected === 'offline' ? 'selected' : '')}
           id="offline"
           onClick={() => {
             setSelected('offline')
@@ -76,7 +76,7 @@ function App() {
         onClick={() => {
           invoke('launch')
         }
-      }>
+        }>
         <button>Play</button>
       </div>
     </div>

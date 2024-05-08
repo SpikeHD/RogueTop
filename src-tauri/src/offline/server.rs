@@ -1,9 +1,9 @@
+use mime_guess::from_path;
 use std::str::FromStr;
 use tiny_http::{Header, Response, Server};
-use mime_guess::from_path;
 
-use crate::{log, warn};
 use super::game::GameFiles;
+use crate::{log, warn};
 
 pub fn start_server() {
   let server = Server::http("127.0.0.1:7653").expect("failed to create local server");
@@ -25,15 +25,19 @@ pub fn start_server() {
       let mime = from_path(actual_path).first_or_text_plain();
       let mut response = Response::from_data(file);
       let content_type = Header::from_str(&format!("Content-Type: {}", mime)).unwrap();
-      
+
       response.add_header(content_type);
 
-      request.respond(response).expect("failed to respond to request");
+      request
+        .respond(response)
+        .expect("failed to respond to request");
     } else {
       warn!("File not found: {}", actual_path);
 
       let response = Response::empty(404);
-      request.respond(response).expect("failed to respond to request");
+      request
+        .respond(response)
+        .expect("failed to respond to request");
     }
   }
 }

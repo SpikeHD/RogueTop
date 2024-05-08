@@ -21,10 +21,8 @@ pub fn run() {
       if let Ok(url) = Url::from_str(LOCAL_URL) {
         maybe_navigate = Some(url);
       }
-    } else {
-      if let Ok(url) = Url::from_str(REMOTE_URL) {
-        maybe_navigate = Some(url);
-      }
+    } else if let Ok(url) = Url::from_str(REMOTE_URL) {
+      maybe_navigate = Some(url);
     }
   }
 
