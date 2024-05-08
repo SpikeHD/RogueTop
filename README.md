@@ -26,8 +26,10 @@
 Download the latest [release for your platform](https://github.com/SpikeHD/RogueTop/releases). The file you download depends on your operating system:
 
 * For Windows, download the `.msi` installer file, or the `pc-windows` ZIP file. Builds are also provided for ARM64.
-* For Linux, download the `.deb` installer file if on a Debian-based system, or the `unknown-linux` ZIP file. Builds are also provided for ARMv7 and ARM64.
+* For Linux, download the `.deb` installer file if on a Debian-based system, or the `unknown-linux` ZIP file. ~~Builds are also provided for ARMv7 and ARM64.~~ (coming soon)
 * For MacOS, download the `.dmg` installer file, or the `apple-darwin` ZIP file. Builds are provided for both Intel-based (x86_64) and M-series-based MacOS systems (arm64).
+
+Releases also come in two flavors, regular and "offline". Regular versions are very lightweight, and will load the online version of PokeRogue. Offline versions are larger, but contain the entirety of PokeRogue within the binary, and can be run without an internet connection!
 
 ## Alternative Installation Methods
 
@@ -46,7 +48,7 @@ You can also download the latest build from [GitHub Actions](https://www.github.
 # Features
 
 * No need to play in a browser tab!
-* Small binary size, instant start time.
+* Small binary size (when using a non-bundled binary), instant start time.
 * Always up-to-date (in online mode).
 
 # Building
@@ -88,9 +90,9 @@ your built files will be in the `src-tauri/target` directory.
 
 # TODO
 
-- [ ] Bundled offline mode (directly in the binary, eg. should work on an airgapped machine)
+- [x] Bundled offline mode (directly in the binary, eg. should work on an airgapped machine)
 - [ ] Downloadable offline mode (update-able without redownloading a new binary every time)
-- [ ] Separate "lite" builds that are online-only
+- [x] Separate "lite" builds that are online-only
 - [ ] Plugin system/support
 - [ ] Theme system/support
 
