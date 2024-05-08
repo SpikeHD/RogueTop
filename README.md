@@ -86,7 +86,7 @@ You can also download the latest build from [GitHub Actions](https://www.github.
   cargo tauri build --features offline
   ```
 
-your built files will be in the `src-tauri/target` directory.
+Your built files will be in the `src-tauri/target` directory.
 
 # TODO
 
