@@ -91,6 +91,7 @@ your built files will be in the `src-tauri/target` directory.
 # TODO
 
 - [x] Bundled offline mode (directly in the binary, eg. should work on an airgapped machine)
+  - [ ] Maybe move to bundled (eg. Tauri resource) but external/read from FS, no need for a 500mb binary lol
 - [ ] Downloadable offline mode (update-able without redownloading a new binary every time)
 - [x] Separate "lite" builds that are online-only
 - [ ] Plugin system/support
