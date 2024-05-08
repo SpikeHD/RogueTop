@@ -7,13 +7,11 @@ on:
       - '.github/workflows/backend.yml'
       - 'package.json'
       - 'src-tauri/**'
-      - 'updater/**'
   pull_request:
     paths:
       - '.github/workflows/backend.yml'
       - 'package.json'
       - 'src-tauri/**'
-      - 'updater/**'
 
 concurrency:
   group: ${{ github.ref }}-${{ github.workflow }}

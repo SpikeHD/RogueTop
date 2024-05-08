@@ -8,14 +8,12 @@ on:
       - 'package.json'
       - 'src-tauri/**/*'
       - 'src/**/*'
-      - 'updater/**/*'
   pull_request:
     paths:
       - '.github/workflows/build.yml'
       - 'package.json'
       - 'src-tauri/**/*'
       - 'src/**/*'
-      - 'updater/**/*'
 
 concurrency:
   group: ${{ github.ref }}-${{ github.workflow }}
