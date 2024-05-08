@@ -2,7 +2,7 @@
 name = "roguetop"
 version = "0.1.0"
 description = "A Tauri App"
-authors = ["you"]
+authors = ["SpikeHD"]
 edition = "2021"
 
 [features]
