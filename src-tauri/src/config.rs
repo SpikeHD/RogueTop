@@ -4,9 +4,10 @@ use std::fs;
 use crate::log;
 use crate::util::paths::get_config_dir;
 
-#[derive(Serialize, Deserialize)]
+#[derive(Serialize, Deserialize, Default)]
 pub struct Config {
-   
+  skip_splash: Option<bool>,
+  offline: Option<bool>,
 }
 
 pub fn init() {
@@ -34,7 +35,8 @@ pub fn write_config_file(contents: String) {
 #[tauri::command]
 pub fn default_config() -> Config {
   Config {
-    
+    skip_splash: Some(false),
+    offline: Some(false),
   }
 }
 

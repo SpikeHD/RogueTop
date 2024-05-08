@@ -2,5 +2,5 @@
 #![cfg_attr(not(debug_assertions), windows_subsystem = "windows")]
 
 fn main() {
-    roguetop_lib::run()
+  roguetop_lib::run()
 }
