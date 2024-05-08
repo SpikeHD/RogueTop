@@ -6,8 +6,8 @@ use crate::util::paths::get_config_dir;
 
 #[derive(Serialize, Deserialize, Default)]
 pub struct Config {
-  skip_splash: Option<bool>,
-  offline: Option<bool>,
+  pub skip_splash: Option<bool>,
+  pub offline: Option<bool>,
 }
 
 pub fn init() {

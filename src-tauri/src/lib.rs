@@ -3,7 +3,11 @@ mod util;
 
 #[cfg_attr(mobile, tauri::mobile_entry_point)]
 pub fn run() {
-  let _config = config::get_config();
+  let config = config::get_config();
+
+  if config.offline.unwrap_or(false) {
+    warn!("Offline mode is unimplemented!");
+  }
 
   tauri::Builder::default()
     .plugin(tauri_plugin_shell::init())

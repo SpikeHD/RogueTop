@@ -38,10 +38,6 @@ jobs:
       - name: Rustfmt check
         run: cargo fmt --manifest-path ./src-tauri/Cargo.toml --all -- --check
 
-      # also check updater
-      - name: Rustfmt check updater
-        run: cargo fmt --manifest-path ./updater/Cargo.toml --all -- --check
-
   clippy:
     runs-on: ${{ matrix.platform }}
 
@@ -80,7 +76,6 @@ jobs:
             ~/.cargo/registry/cache/
             ~/.cargo/git/db/
             src-tauri/target/
-            updater/target/
           key: ${{ runner.os }}-cargo-${{ hashFiles('**/Cargo.lock') }}
 
       - name: Build frontend (creates '../dist')
