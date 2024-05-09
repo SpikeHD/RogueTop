@@ -29,7 +29,7 @@ pub fn get_config_dir() -> PathBuf {
   if fs::metadata(&config_file).is_err() {
     fs::write(
       &config_file,
-      serde_json::to_string(&config::Config::default()).unwrap_or("{}".to_string()),
+      serde_json::to_string(&config::default_config()).unwrap_or("{}".to_string()),
     )
     .unwrap_or(());
   }

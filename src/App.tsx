@@ -13,7 +13,7 @@ function App() {
   useEffect(() => {
     (async () => {
       const config: Config = await invoke('get_config')
-      const supportsOffline: boolean = await invoke('poke_supports_offline')
+      const supportsOffline: boolean = await invoke('supports_offline')
       setSupportsOffline(supportsOffline)
       setAlwaysUse(config.skip_splash)
       setSelected(config.offline ? 'offline' : 'online')

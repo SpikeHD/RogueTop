@@ -142,6 +142,11 @@ jobs:
       - name: (Offline) If we are building the offline version, bootstrap PokeRogue locally
         if: matrix.features == 'offline'
         run: git clone https://github.com/pagefaultgames/pokerogue.git src-ext --depth 1 && cd src-ext && pnpm install && pnpm build && cd ..
+
+      # For lite installs
+      - name: (Online) Create empty resource path
+        if: matrix.features != 'offline'
+        run: mkdir -r src-ext/dist
           
       - name: (Most) Build
         # If we are compiling for Windows ARM, we can only support NSIS

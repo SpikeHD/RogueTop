@@ -33,6 +33,6 @@ anyhow = "1.0.83"
 thiserror = "1.0.60"
 tiny_http = "0.12.0"
 include-flate = "0.3.0"
-rust-embed = "8.3.0"
 mime_guess = "2.0.4"
+url-escape = "0.1.1"
 

@@ -2585,7 +2585,6 @@ dependencies = [
  "dirs",
  "include-flate",
  "mime_guess",
- "rust-embed",
  "serde",
  "serde_json",
  "tauri",
@@ -2593,40 +2592,7 @@ dependencies = [
  "tauri-plugin-shell",
  "thiserror",
  "tiny_http",
-]
-
-[[package]]
-name = "rust-embed"
-version = "8.3.0"
-source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "fb78f46d0066053d16d4ca7b898e9343bc3530f71c61d5ad84cd404ada068745"
-dependencies = [
- "rust-embed-impl",
- "rust-embed-utils",
- "walkdir",
-]
-
-[[package]]
-name = "rust-embed-impl"
-version = "8.3.0"
-source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "b91ac2a3c6c0520a3fb3dd89321177c3c692937c4eb21893378219da10c44fc8"
-dependencies = [
- "proc-macro2",
- "quote",
- "rust-embed-utils",
- "syn 2.0.61",
- "walkdir",
-]
-
-[[package]]
-name = "rust-embed-utils"
-version = "8.3.0"
-source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "86f69089032567ffff4eada41c573fc43ff466c7db7c5688b2e7969584345581"
-dependencies = [
- "sha2",
- "walkdir",
+ "url-escape",
 ]
 
 [[package]]
@@ -3777,6 +3743,15 @@ dependencies = [
  "idna",
  "percent-encoding",
  "serde",
+]
+
+[[package]]
+name = "url-escape"
+version = "0.1.1"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "44e0ce4d1246d075ca5abec4b41d33e87a6054d08e2366b63205665e950db218"
+dependencies = [
+ "percent-encoding",
 ]
 
 [[package]]

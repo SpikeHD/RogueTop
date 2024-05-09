@@ -39,8 +39,9 @@ pub fn launch(app: tauri::AppHandle) -> bool {
   // If we are offline, start the offline server in a new thread
   #[cfg(feature = "offline")]
   if config.offline.unwrap_or(false) {
+    let handle_clone = app.clone();
     std::thread::spawn(|| {
-      offline::server::start_server();
+      offline::server::start_server(handle_clone);
     });
   }
 
