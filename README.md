@@ -33,6 +33,11 @@
   * [Intel-based Download](https://github.com/SpikeHD/RogueTop/releases/latest/download/roguetop-default-x86_64-apple-darwin-dmg.zip)
   * [M-series-based Download](https://github.com/SpikeHD/RogueTop/releases/latest/download/roguetop-default-aarch64-apple-darwin-dmg.zip)
 
+> [!NOTE]
+> ***MacOS Users***: If opening the app gives you "PokeRogue.app is damaged and cannot be opened", MacOS is lying to you and you may just need to run `sudo xattr -rd com.apple.quarantine /Applications/PokeRogue.app`.
+>
+> ***Windows Users***: Defender may think RogueTop is a virus. This just happens sometimes, and if SmartScreen blocks it from running, click "More Info" and "Run Anyways". Feel free to scan RogueTop with [Virustotal](https://www.virustotal.com/gui/home/upload)!
+
 ## Other Architectures
 
 The file you download depends on your operating system:
