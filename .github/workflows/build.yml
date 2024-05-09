@@ -190,10 +190,11 @@ jobs:
         run: cd src-tauri/target/${{ matrix.config.target }}/release && 7z a -tzip -mx9 RogueTop.zip 
           PokeRogue.exe
           config.json
+          _up_
 
       - name: (Linux) Compress build
         if: matrix.config.platform == 'ubuntu-latest'
-        run: cd src-tauri/target/${{ matrix.config.target }}/release && tar -czvf roguetop.tar.gz poke-rogue config.json
+        run: cd src-tauri/target/${{ matrix.config.target }}/release && tar -czvf roguetop.tar.gz poke-rogue config.json _up_
 
       # Windows portable
       - name: (Windows) Upload portable
