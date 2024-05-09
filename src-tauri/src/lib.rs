@@ -4,7 +4,7 @@ mod game;
 mod offline;
 mod util;
 
-static REMOTE_URL: &str = "http://pokerogue.net";
+static REMOTE_URL: &str = "https://pokerogue.net";
 static LOCAL_URL: &str = "http://localhost:7653";
 
 #[cfg_attr(mobile, tauri::mobile_entry_point)]
