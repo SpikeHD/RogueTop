@@ -16,7 +16,7 @@
 </div>
 
 <div align="center">
- Online and offline <a href="https://github.com/pagefaultgames/pokerogue">PokeRogue</a> client for Windows, Linux and MacOS.
+ Online and ~~offline~~ <a href="https://github.com/pagefaultgames/pokerogue">PokeRogue</a> client for Windows, Linux and MacOS.
  <br />
  https://discord.gg/agQ9mRdHMZ
 </div>

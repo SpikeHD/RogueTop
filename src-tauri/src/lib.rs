@@ -1,7 +1,3 @@
-use std::str::FromStr;
-
-use tauri::Url;
-
 mod config;
 mod game;
 #[cfg(feature = "offline")]
@@ -33,7 +29,9 @@ pub fn run() {
 
           #[cfg(not(feature = "offline"))]
           {
-            warn!("Offline mode requested, but feature is not enabled. Opening options panel instead.");
+            warn!(
+              "Offline mode requested, but feature is not enabled. Opening options panel instead."
+            );
 
             // Write to the config that we should run in online mode
             let mut config = config::get_config();

@@ -1,13 +1,10 @@
-use std::io::Read;
 use mime_guess::from_path;
+use std::io::Read;
 use std::str::FromStr;
 use tiny_http::{Header, Response, Server};
 use url_escape::decode;
 
-use tauri::{
-  path::BaseDirectory,
-  Manager
-};
+use tauri::{path::BaseDirectory, Manager};
 
 use crate::{log, warn};
 
@@ -22,7 +19,10 @@ pub fn start_server(app: tauri::AppHandle) {
       path
     };
 
-    let file = app.path().resolve(format!("../src-ext/dist/{}", decode(actual_path)), BaseDirectory::Resource);
+    let file = app.path().resolve(
+      format!("../src-ext/dist/{}", decode(actual_path)),
+      BaseDirectory::Resource,
+    );
 
     if let Ok(file) = file {
       let file = match std::fs::File::open(&file) {
@@ -37,7 +37,10 @@ pub fn start_server(app: tauri::AppHandle) {
         }
       };
       let data = std::io::BufReader::new(file);
-      let data = data.bytes().collect::<Result<Vec<u8>, _>>().expect("failed to read file");
+      let data = data
+        .bytes()
+        .collect::<Result<Vec<u8>, _>>()
+        .expect("failed to read file");
       let mime = from_path(actual_path).first_or_text_plain();
       let mut response = Response::from_data(data);
       let content_type = Header::from_str(&format!("Content-Type: {}", mime)).unwrap();
