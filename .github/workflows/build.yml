@@ -146,7 +146,9 @@ jobs:
       # For lite installs
       - name: (Online) Create empty resource path
         if: matrix.features != 'offline'
-        run: mkdir -p src-ext/dist
+        run: |
+          mkdir -p src-ext/dist
+          touch src-ext/dist/.empty
           
       - name: (Most) Build
         # If we are compiling for Windows ARM, we can only support NSIS
