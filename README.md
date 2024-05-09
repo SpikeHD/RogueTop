@@ -114,6 +114,9 @@ Your built files will be in the `src-tauri/target` directory.
   - [ ] TODO finish this
 - [ ] Downloadable offline mode (update-able without redownloading a new binary every time)
 - [x] Separate "lite" builds that are online-only
+- [ ] Hotkeys
+  - [ ] Fullscreen
+  - [ ] TBD
 - [ ] Plugin system/support?
 - [ ] Theme system/support?
 
