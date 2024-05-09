@@ -37,8 +37,8 @@ jobs:
       - name: Install modules
         run: pnpm install
 
-      - name: Run esbuild
-        run: pnpm build:js
+      - name: Run build
+        run: pnpm build
 
       - name: Run ESLint
         run: pnpm eslint ./src
