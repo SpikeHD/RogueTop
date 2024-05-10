@@ -139,6 +139,9 @@ jobs:
       - name: Install dependencies
         run: pnpm install
 
+      - name: Build injection extension
+        run: pnpm build:ext
+
       - name: (Offline) (Windows) If we are building the offline version, bootstrap PokeRogue locally
         if: matrix.features == 'offline' && matrix.config.platform == 'windows-latest'
         run: cmd /c ".\bootstrap_pokerogue.cmd"
