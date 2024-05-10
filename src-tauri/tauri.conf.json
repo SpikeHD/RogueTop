@@ -32,7 +32,7 @@
       "icons/icon.ico"
     ],
     "resources": [
-      "../src-ext/dist/**/*"
+      "../game.dat"
     ]
   }
 }
