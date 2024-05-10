@@ -1,4 +1,9 @@
-use std::{fs::{self, File}, io::Read, path::PathBuf, sync::{Mutex, OnceLock}};
+use std::{
+  fs::{self, File},
+  io::Read,
+  path::PathBuf,
+  sync::{Mutex, OnceLock},
+};
 use zip::{self, ZipArchive};
 
 use crate::{log, warn};
@@ -21,7 +26,7 @@ pub fn init(path: &PathBuf) -> bool {
       return false;
     }
   };
-  
+
   FILE_HANDLE.lock().unwrap().replace(file);
 
   true
