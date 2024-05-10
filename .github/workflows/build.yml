@@ -255,12 +255,12 @@ jobs:
           path: src-tauri/target/${{ matrix.config.target }}/release/bundle/deb/*.deb
 
       # Redhat rpm
-      - name: (Linux) Upload .rpm
-        if: matrix.config.platform == 'ubuntu-latest'
-        uses: actions/upload-artifact@v4
-        with:
-          name: roguetop-${{ matrix.features }}-${{ matrix.config.target }}-rpm
-          path: src-tauri/target/${{ matrix.config.target }}/release/bundle/rpm/*.rpm
+      # - name: (Linux) Upload .rpm
+      #   if: matrix.config.platform == 'ubuntu-latest'
+      #   uses: actions/upload-artifact@v4
+      #   with:
+      #     name: roguetop-${{ matrix.features }}-${{ matrix.config.target }}-rpm
+      #     path: src-tauri/target/${{ matrix.config.target }}/release/bundle/rpm/*.rpm
 
       - name: (Linux) Upload .appimage
         if: matrix.config.platform == 'ubuntu-latest'
@@ -275,3 +275,25 @@ jobs:
         with:
           name: roguetop-${{ matrix.features }}-${{ matrix.config.target }}-dmg
           path: src-tauri/target/${{ matrix.config.target }}/release/bundle/dmg/*.dmg
+
+  release:
+    needs: build
+    runs-on: ubuntu-latest
+    if: startsWith(github.ref, 'refs/tags/')
+    steps:
+      # Download all artifacts from the build job
+      - name: Download artifacts
+        uses: actions/download-artifact@v4
+        with:
+          path: artifacts
+
+      - name: Create release using all artifacts
+        uses: softprops/action-gh-release@v2
+        with:
+          files: artifacts/**
+          token: ${{ secrets.GITHUB_TOKEN }}
+          # Release name is the tag name
+          name: ${{ github.ref_name }}
+          draft: false
+          generate_release_notes: true
+          prerelease: false
