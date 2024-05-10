@@ -151,7 +151,12 @@ jobs:
         run: chmod +x ./bootstrap_pokerogue.sh && ./bootstrap_pokerogue.sh
 
       - name: Verify game.dat now exists
+        if: matrix.features == 'offline' && matrix.config.platform != 'windows-latest'
         run: ls -la && test -f game.dat
+
+      - name: Verify game.dat now exists
+        if: matrix.features == 'offline' && matrix.config.platform == 'windows-latest'
+        run: dir && type game.dat
 
       # For lite installs
       - name: (Online) Create empty resource
