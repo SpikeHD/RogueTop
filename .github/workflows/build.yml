@@ -141,18 +141,17 @@ jobs:
 
       - name: (Offline) (Windows) If we are building the offline version, bootstrap PokeRogue locally
         if: matrix.features == 'offline' && matrix.config.platform == 'windows-latest'
-        run: .\bootstrap_pokerogue.cmd
+        run: start .\bootstrap_pokerogue.cmd
 
       - name: (Offline) (Unix) If we are building the offline version, bootstrap PokeRogue locally
         if: matrix.features == 'offline' && matrix.config.platform != 'windows-latest'
-        run: chmod +x ./bootstrap_pokerogue.sh && ./bootstrap_pokerogue.sh
+        run: chmod +x ./bootstrap_pokerogue.sh && /bin/bash ./bootstrap_pokerogue.sh
 
       # For lite installs
-      - name: (Online) Create empty resource path
+      - name: (Online) Create empty resource
         if: matrix.features != 'offline'
         run: |
-          mkdir -p src-ext/dist
-          touch src-ext/dist/.empty
+          touch game.dat
           
       - name: (Most) Build
         # If we are compiling for Windows ARM, we can only support NSIS
