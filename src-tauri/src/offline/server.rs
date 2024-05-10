@@ -24,7 +24,10 @@ pub fn start_server(app: tauri::AppHandle) {
 
     // If this is a request to the API, hand it off
     if path.starts_with("api/") {
-      crate::offline::api::handle_request(&mut request);
+      let result = crate::offline::api::handle_request(&mut request);
+      request
+        .respond(Response::from_string(result))
+        .expect("failed to respond to request");
       continue;
     }
 

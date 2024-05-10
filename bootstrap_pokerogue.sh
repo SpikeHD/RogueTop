@@ -4,6 +4,10 @@ git clone https://github.com/pagefaultgames/pokerogue.git src-ext --depth 1
 cd src-ext
 
 pnpm install
+
+# Write "VITE_BYPASS_LOGIN" to .env file
+echo VITE_BYPASS_LOGIN=true > .env
+
 pnpm build
 
 # Compress dist folder to "game.dat"
