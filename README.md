@@ -25,13 +25,16 @@
 
 ## Quick Links
 
-* [Windows Download](https://github.com/SpikeHD/RogueTop/releases/latest/download/roguetop-default-x86_64-pc-windows-msvc-msi.zip)
+* Windows
+  * [Installer Download](https://github.com/SpikeHD/RogueTop/releases/latest/download/roguetop-default-x86_64-pc-windows-msvc-msi.zip) | [Offline](https://github.com/SpikeHD/RogueTop/releases/latest/download/roguetop-offline-x86_64-pc-windows-msvc-msi.zip)
+  * [Portable Download](https://github.com/SpikeHD/RogueTop/releases/latest/download/roguetop-default-x86_64-pc-windows-msvc-portable.zip) | [Offline](https://github.com/SpikeHD/RogueTop/releases/latest/download/roguetop-offline-x86_64-pc-windows-msvc-portable.zip)
 * Linux
-  * [Debian-based Download](https://github.com/SpikeHD/RogueTop/releases/latest/download/roguetop-default-x86_64-unknown-linux-gnu-deb.zip)
-  * [RPM-based Download](https://github.com/SpikeHD/RogueTop/releases/latest/download/roguetop-default-x86_64-unknown-linux-gnu-rpm.zip)
+  * [Debian-based Download](https://github.com/SpikeHD/RogueTop/releases/latest/download/roguetop-default-x86_64-unknown-linux-gnu-deb.zip) | [Offline](https://github.com/SpikeHD/RogueTop/releases/latest/download/roguetop-offline-x86_64-unknown-linux-gnu-deb.zip)
+  * [RPM-based Download](https://github.com/SpikeHD/RogueTop/releases/latest/download/roguetop-default-x86_64-unknown-linux-gnu-rpm.zip) | [Offline](https://github.com/SpikeHD/RogueTop/releases/latest/download/roguetop-offline-x86_64-unknown-linux-gnu-rpm.zip)
+  * [Portable Download](https://github.com/SpikeHD/RogueTop/releases/latest/download/roguetop-default-x86_64-pc-windows-msvc-portable.zip ) | [Offline](https://github.com/SpikeHD/RogueTop/releases/latest/download/roguetop-offline-x86_64-pc-windows-msvc-portable.zip)
 * MacOS
-  * [Intel-based Download](https://github.com/SpikeHD/RogueTop/releases/latest/download/roguetop-default-x86_64-apple-darwin-dmg.zip)
-  * [M-series-based Download](https://github.com/SpikeHD/RogueTop/releases/latest/download/roguetop-default-aarch64-apple-darwin-dmg.zip)
+  * [Intel-based Download](https://github.com/SpikeHD/RogueTop/releases/latest/download/roguetop-default-x86_64-apple-darwin-dmg.zip) | [Offline](https://github.com/SpikeHD/RogueTop/releases/latest/download/roguetop-offline-x86_64-apple-darwin-dmg.zip)
+  * [M-series-based Download](https://github.com/SpikeHD/RogueTop/releases/latest/download/roguetop-default-aarch64-apple-darwin-dmg.zip) | [Offline](https://github.com/SpikeHD/RogueTop/releases/latest/download/roguetop-offline-aarch64-apple-darwin-dmg.zip)
 
 > [!NOTE]
 > ***MacOS Users***: If opening the app gives you "PokeRogue.app is damaged and cannot be opened", MacOS is lying to you and you may just need to run `sudo xattr -rd com.apple.quarantine /Applications/PokeRogue.app`.
