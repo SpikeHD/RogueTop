@@ -35,7 +35,7 @@ pub fn write_config_file(contents: String) {
 #[tauri::command]
 pub fn default_config() -> Config {
   Config {
-    skip_splash: Some(true),
+    skip_splash: Some(false),
     offline: Some(false),
   }
 }
