@@ -15,10 +15,8 @@ pub fn api_request(url: String, options: String) -> String {
   let options: Options = serde_json::from_str(&options).unwrap();
 
   // Split the path from the full URL
-  let path = url.split_once("/").unwrap_or(("", "")).1;
-  let url = format!("{}/api{}", LOCAL_URL, path);
-
-  log!("{}", url);
+  let path = url.split_once("http://").unwrap_or(("", "")).1.split_once("/").unwrap_or(("", "")).1;
+  let url = format!("{}/api/{}", LOCAL_URL, path);
 
   let response = match options.method.as_str() {
     "GET" => client.get(&url).send(),
