@@ -17,7 +17,13 @@ pub fn api_request(url: String, options: String) -> String {
   let method = options.method.clone().unwrap_or("GET".to_string());
 
   // Split the path from the full URL
-  let path = url.split_once("http://").unwrap_or(("", "")).1.split_once("/").unwrap_or(("", "")).1;
+  let path = url
+    .split_once("http://")
+    .unwrap_or(("", ""))
+    .1
+    .split_once("/")
+    .unwrap_or(("", ""))
+    .1;
   let url = format!("{}/api/{}", LOCAL_URL, path);
 
   let response = match method.as_str() {
