@@ -95,7 +95,8 @@ You can also download the latest build from [GitHub Actions](https://www.github.
   # This will clone and build the entirety of PokeRogue into ./src-ext
   ./bootstrap_pokerogue[.sh|.cmd]
   ```
-4. Build it!
+4. (If NOT bundling for offline mode) create a fake `game.dat` folder in the root of the repository to prevent build issues
+5. Build it!
   ```sh
   pnpm tauri build
   # Or if you have tauri CLI installed
