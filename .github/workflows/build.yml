@@ -168,7 +168,7 @@ jobs:
   
       - name: (Most) Build
         # If we are compiling for Windows ARM, we can only support NSIS
-        run: pnpm tauri build --target ${{ matrix.config.target }} ${{ matrix.config.target == 'aarch64-pc-windows-msvc' && '--bundles nsis' || '' }} --features ${{ matrix.features }}
+        run: pnpm tauri build --target ${{ matrix.config.target }} ${{ matrix.config.target == 'aarch64-pc-windows-msvc' && '--bundles nsis' || '' }} ${{ matrix.config.target == 'x86_64-unknown-linux-gnu' && '--bundles deb' || '' }} --features ${{ matrix.features }}
         if: matrix.config.target != 'aarch64-unknown-linux-gnu' && matrix.config.target != 'armv7-unknown-linux-gnueabihf'
         env:
           RUSTFLAGS: -Awarnings
