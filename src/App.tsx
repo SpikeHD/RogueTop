@@ -6,7 +6,7 @@ import './App.css'
 
 function App() {
   const [selected, setSelected] = useState('online')
-  const [alwaysUse, setAlwaysUse] = useState(true)
+  const [alwaysUse, setAlwaysUse] = useState(false)
   const [supportsOffline, setSupportsOffline] = useState(false)
 
   // Load the config
@@ -18,7 +18,7 @@ function App() {
       setAlwaysUse(config.skip_splash)
       setSelected(config.offline ? 'offline' : 'online')
     })()
-  })
+  }, [])
   
   const setConfig = async (option: keyof Config, value: Config[keyof Config]) => {
     const config = await invoke('get_config') as Config
