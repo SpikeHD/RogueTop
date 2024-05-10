@@ -1,6 +1,6 @@
 [package]
 name = "roguetop"
-version = "0.1.0"
+version = "0.2.0"
 description = "Online & Offline PokeRogue desktop client"
 authors = ["SpikeHD"]
 edition = "2021"
