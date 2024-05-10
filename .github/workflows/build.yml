@@ -141,7 +141,7 @@ jobs:
 
       - name: (Offline) (Windows) If we are building the offline version, bootstrap PokeRogue locally
         if: matrix.features == 'offline' && matrix.config.platform == 'windows-latest'
-        run: start .\bootstrap_pokerogue.cmd
+        run: cmd /c ".\bootstrap_pokerogue.cmd"
 
       - name: (Offline) (Unix) If we are building the offline version, bootstrap PokeRogue locally
         if: matrix.features == 'offline' && matrix.config.platform != 'windows-latest'
