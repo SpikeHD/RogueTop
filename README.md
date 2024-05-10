@@ -16,7 +16,7 @@
 </div>
 
 <div align="center">
- Online and <s>offline</s> <a href="https://github.com/pagefaultgames/pokerogue">PokeRogue</a> client for Windows, Linux and MacOS.
+ Online and offline <a href="https://github.com/pagefaultgames/pokerogue">PokeRogue</a> client for Windows, Linux and MacOS.
  <br />
  https://discord.gg/agQ9mRdHMZ
 </div>
@@ -26,15 +26,14 @@
 ## Quick Links
 
 * Windows
-  * [Installer Download](https://github.com/SpikeHD/RogueTop/releases/latest/download/roguetop-default-x86_64-pc-windows-msvc-msi.zip) | [Offline](https://github.com/SpikeHD/RogueTop/releases/latest/download/roguetop-offline-x86_64-pc-windows-msvc-msi.zip)
-  * [Portable Download](https://github.com/SpikeHD/RogueTop/releases/latest/download/roguetop-default-x86_64-pc-windows-msvc-portable.zip) | [Offline](https://github.com/SpikeHD/RogueTop/releases/latest/download/roguetop-offline-x86_64-pc-windows-msvc-portable.zip)
+  * [Installer Download](https://github.com/SpikeHD/RogueTop/releases/latest/download/roguetop-default-x86_64-pc-windows-msvc-msi.zip) | [Offline Version](https://github.com/SpikeHD/RogueTop/releases/latest/download/roguetop-offline-x86_64-pc-windows-msvc-msi.zip)
+  * [Portable Download](https://github.com/SpikeHD/RogueTop/releases/latest/download/roguetop-default-x86_64-pc-windows-msvc-portable.zip) | [Offline Version](https://github.com/SpikeHD/RogueTop/releases/latest/download/roguetop-offline-x86_64-pc-windows-msvc-portable.zip)
 * Linux
-  * [Debian-based Download](https://github.com/SpikeHD/RogueTop/releases/latest/download/roguetop-default-x86_64-unknown-linux-gnu-deb.zip) | [Offline](https://github.com/SpikeHD/RogueTop/releases/latest/download/roguetop-offline-x86_64-unknown-linux-gnu-deb.zip)
-  * [RPM-based Download](https://github.com/SpikeHD/RogueTop/releases/latest/download/roguetop-default-x86_64-unknown-linux-gnu-rpm.zip) | [Offline](https://github.com/SpikeHD/RogueTop/releases/latest/download/roguetop-offline-x86_64-unknown-linux-gnu-rpm.zip)
-  * [Portable Download](https://github.com/SpikeHD/RogueTop/releases/latest/download/roguetop-default-x86_64-pc-windows-msvc-portable.zip ) | [Offline](https://github.com/SpikeHD/RogueTop/releases/latest/download/roguetop-offline-x86_64-pc-windows-msvc-portable.zip)
+  * [Debian-based Download](https://github.com/SpikeHD/RogueTop/releases/latest/download/roguetop-default-x86_64-unknown-linux-gnu-deb.zip) | [Offline Version](https://github.com/SpikeHD/RogueTop/releases/latest/download/roguetop-offline-x86_64-unknown-linux-gnu-deb.zip)
+  * [Portable Download](https://github.com/SpikeHD/RogueTop/releases/latest/download/roguetop-default-x86_64-pc-windows-msvc-portable.zip ) | [Offline Version](https://github.com/SpikeHD/RogueTop/releases/latest/download/roguetop-offline-x86_64-pc-windows-msvc-portable.zip)
 * MacOS
-  * [Intel-based Download](https://github.com/SpikeHD/RogueTop/releases/latest/download/roguetop-default-x86_64-apple-darwin-dmg.zip) | [Offline](https://github.com/SpikeHD/RogueTop/releases/latest/download/roguetop-offline-x86_64-apple-darwin-dmg.zip)
-  * [M-series-based Download](https://github.com/SpikeHD/RogueTop/releases/latest/download/roguetop-default-aarch64-apple-darwin-dmg.zip) | [Offline](https://github.com/SpikeHD/RogueTop/releases/latest/download/roguetop-offline-aarch64-apple-darwin-dmg.zip)
+  * [Intel-based Download](https://github.com/SpikeHD/RogueTop/releases/latest/download/roguetop-default-x86_64-apple-darwin-dmg.zip) | [Offline Version](https://github.com/SpikeHD/RogueTop/releases/latest/download/roguetop-offline-x86_64-apple-darwin-dmg.zip)
+  * [M-series-based Download](https://github.com/SpikeHD/RogueTop/releases/latest/download/roguetop-default-aarch64-apple-darwin-dmg.zip) | [Offline Version](https://github.com/SpikeHD/RogueTop/releases/latest/download/roguetop-offline-aarch64-apple-darwin-dmg.zip)
 
 > [!NOTE]
 > ***MacOS Users***: If opening the app gives you "PokeRogue.app is damaged and cannot be opened", MacOS is lying to you and you may just need to run `sudo xattr -rd com.apple.quarantine /Applications/PokeRogue.app`.
@@ -46,10 +45,10 @@
 The file you download depends on your operating system:
 
 * For Windows, download the `.msi` installer file, or the `pc-windows` ZIP file. Builds are also provided for arm64.
-* For Linux, download the `.deb` or `.rpm` installer files, or the `unknown-linux` ZIP file. Builds are also provided for armv7 and arm64.
+* For Linux, download the `.deb` installer files, or the `unknown-linux` ZIP file. Builds are also provided for armv7 and arm64.
 * For MacOS, download the `.dmg` installer file, or the `apple-darwin` ZIP file. Builds are provided for both Intel-based (x86_64) and M-series-based MacOS systems (arm64).
 
-Releases also come in two flavors, regular and ~~"offline"~~. Regular versions are very lightweight, and will load the online version of PokeRogue. ~~Offline versions are larger, but contain the entirety of PokeRogue within the binary, and can be run without an internet connection!~~
+Releases also come in two flavors, regular and "offline". Regular versions are very lightweight, and will load the online version of PokeRogue. Offline versions are larger, but contain the entirety of PokeRogue within the binary, and can be run without an internet connection!
 
 ## Alternative Installation Methods
 
@@ -115,13 +114,14 @@ Your built files will be in the `src-tauri/target` directory.
 
 - [x] Bundled offline mode (directly in the binary, eg. should work on an airgapped machine)
   - [x] Maybe move to bundled (eg. Tauri resource) but external/read from FS, no need for a 500mb binary lol
-  - [ ] TODO finish this
+  - [x] TODO finish this
 - [ ] Downloadable offline mode (update-able without redownloading a new binary every time)
 - [x] Separate "lite" builds that are online-only
 - [ ] Hotkeys
   - [ ] Fullscreen
   - [ ] TBD
-- [ ] Add `.plist` for MacOS to solve HTTP issue
+- [ ] Mobile support
+- [x] Add `.plist` for MacOS to solve HTTP issue
 - [ ] Mod system/support?
   - [ ] Bind of Isaac-like texture replacements?
   - [ ] JS-based mods?
