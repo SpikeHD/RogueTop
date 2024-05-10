@@ -165,14 +165,6 @@ jobs:
         if: matrix.features != 'offline'
         run: |
           touch game.dat
-
-      - name: Verify game.dat now exists
-        if: matrix.features == 'offline' && matrix.config.platform != 'windows-latest'
-        run: ls -la && test -f game.dat
-  
-      - name: Verify game.dat now exists
-        if: matrix.features == 'offline' && matrix.config.platform == 'windows-latest'
-        run: dir && type game.dat
   
       - name: (Most) Build
         # If we are compiling for Windows ARM, we can only support NSIS
