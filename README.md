@@ -117,6 +117,7 @@ Your built files will be in the `src-tauri/target` directory.
 - [ ] Hotkeys
   - [ ] Fullscreen
   - [ ] TBD
+- [ ] Add `.plist` for MacOS to solve HTTP issue
 - [ ] Plugin system/support?
 - [ ] Theme system/support?
 
