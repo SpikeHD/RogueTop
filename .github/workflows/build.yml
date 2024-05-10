@@ -149,7 +149,7 @@ jobs:
 
       - name: (Offline) (Unix) If we are building the offline version, bootstrap PokeRogue locally
         if: matrix.features == 'offline' && matrix.config.platform != 'windows-latest'
-        run: ./bootstrap_pokerogue.sh
+        run: chmods +x ./bootstrap_pokerogue.sh && ./bootstrap_pokerogue.sh
 
       # For lite installs
       - name: (Online) Create empty resource
