@@ -139,9 +139,13 @@ jobs:
       - name: Install dependencies
         run: pnpm install
 
-      - name: (Offline) If we are building the offline version, bootstrap PokeRogue locally
-        if: matrix.features == 'offline'
-        run: git clone https://github.com/pagefaultgames/pokerogue.git src-ext --depth 1 && cd src-ext && pnpm install && pnpm build && cd ..
+      - name: (Offline) (Windows) If we are building the offline version, bootstrap PokeRogue locally
+        if: matrix.features == 'offline' && matrix.config.platform == 'windows-latest'
+        run: bootstrap_pokerogue.cmd
+
+      - name: (Offline) (Unix) If we are building the offline version, bootstrap PokeRogue locally
+        if: matrix.features == 'offline' && matrix.config.platform != 'windows-latest'
+        run: ./bootstrap_pokerogue.sh
 
       # For lite installs
       - name: (Online) Create empty resource path

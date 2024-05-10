@@ -7,4 +7,5 @@ pnpm install
 pnpm build
 
 # Compress dist folder to "game.dat"
-zip -5 -r ../game.dat dist
+cd dist
+zip -5 -r ../game.dat .
