@@ -150,20 +150,20 @@ jobs:
         if: matrix.features == 'offline' && matrix.config.platform != 'windows-latest'
         run: chmod +x ./bootstrap_pokerogue.sh && ./bootstrap_pokerogue.sh
 
-      - name: Verify game.dat now exists
-        if: matrix.features == 'offline' && matrix.config.platform != 'windows-latest'
-        run: ls -la && test -f game.dat
-
-      - name: Verify game.dat now exists
-        if: matrix.features == 'offline' && matrix.config.platform == 'windows-latest'
-        run: dir && type game.dat
-
       # For lite installs
       - name: (Online) Create empty resource
         if: matrix.features != 'offline'
         run: |
           touch game.dat
-          
+
+      - name: Verify game.dat now exists
+        if: matrix.features == 'offline' && matrix.config.platform != 'windows-latest'
+        run: ls -la && test -f game.dat
+  
+      - name: Verify game.dat now exists
+        if: matrix.features == 'offline' && matrix.config.platform == 'windows-latest'
+        run: dir && type game.dat
+  
       - name: (Most) Build
         # If we are compiling for Windows ARM, we can only support NSIS
         run: pnpm tauri build --target ${{ matrix.config.target }} ${{ matrix.config.target == 'aarch64-pc-windows-msvc' && '--bundles nsis' || '' }} --features ${{ matrix.features }}
