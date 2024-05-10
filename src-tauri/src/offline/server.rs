@@ -1,5 +1,4 @@
 use mime_guess::from_path;
-use std::io::Read;
 use std::str::FromStr;
 use tiny_http::{Header, Response, Server};
 use url_escape::decode;
@@ -7,7 +6,7 @@ use url_escape::decode;
 use tauri::{path::BaseDirectory, Manager};
 
 use crate::offline::zip;
-use crate::{log, warn};
+use crate::warn;
 
 pub fn start_server(app: tauri::AppHandle) {
   let server = Server::http("127.0.0.1:7653").expect("failed to create local server");
@@ -20,14 +19,14 @@ pub fn start_server(app: tauri::AppHandle) {
 
   zip::init(&file);
 
-  for request in server.incoming_requests() {
+  for mut request in server.incoming_requests() {
     let path = request.url().strip_prefix('/').unwrap_or(request.url());
 
     // If this is a request to the API, hand it off
-    // if path.starts_with("api/") {
-    //   crate::offline::api::handle_request(request);
-    //   continue;
-    // }
+    if path.starts_with("api/") {
+      crate::offline::api::handle_request(&mut request);
+      continue;
+    }
 
     let actual_path = if path == "/" || path == "" {
       "index.html"

@@ -6,6 +6,7 @@
   "scripts": {
     "dev": "vite",
     "build": "tsc && vite build",
+    "build:ext": "esbuild --bundle --minify --target=es6 --outfile=ext/index_min.js ext/index.ts",
     "preview": "vite preview",
     "tauri": "tauri"
   },
@@ -15,9 +16,10 @@
     "preact": "^10.16.0"
   },
   "devDependencies": {
-    "eslint": "^8.57.0",
     "@preact/preset-vite": "^2.5.0",
     "@tauri-apps/cli": ">=2.0.0-beta.0",
+    "esbuild": "^0.21.1",
+    "eslint": "^8.57.0",
     "globals": "^15.1.0",
     "internal-ip": "^7.0.0",
     "typescript": "^5.0.2",
