@@ -6,7 +6,7 @@ cd src-ext
 pnpm install
 
 # Write "VITE_BYPASS_LOGIN" to .env file
-echo VITE_BYPASS_LOGIN=true > .env
+echo VITE_BYPASS_LOGIN="1" > .env
 
 pnpm build
 
