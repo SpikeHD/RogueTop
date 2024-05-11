@@ -1,14 +1,7 @@
 use std::{fs, path::PathBuf};
 
-use serde::{Deserialize, Serialize};
-
 use crate::util::paths::get_mods_path;
-
-#[derive(Default, Serialize, Deserialize)]
-pub struct ModConfig {
-  pub disabled: Vec<String>,
-  pub load_order: Vec<String>,
-}
+use super::get_mod_config;
 
 /// Get a file
 pub fn get_alt_file(path: PathBuf) -> Result<Vec<u8>, std::io::Error> {
@@ -16,7 +9,7 @@ pub fn get_alt_file(path: PathBuf) -> Result<Vec<u8>, std::io::Error> {
   let mods_path = get_mods_path();
 
   // For each mod in the load order, check if the file exists
-  for mod_name in get_mod_list() {
+  for mod_name in get_replacer_list() {
     let mod_path = mods_path.join(&mod_name).join(&path);
 
     if fs::metadata(&mod_path).is_ok() {
@@ -28,7 +21,8 @@ pub fn get_alt_file(path: PathBuf) -> Result<Vec<u8>, std::io::Error> {
 }
 
 /// Get mod list
-pub fn get_mod_list() -> Vec<String> {
+#[tauri::command]
+pub fn get_replacer_list() -> Vec<String> {
   let mods_path = get_mods_path();
   let mut mod_config = get_mod_config().unwrap_or_default();
 
@@ -57,26 +51,4 @@ pub fn get_mod_list() -> Vec<String> {
   fs::write(get_mods_path().join("mods.json"), config_str).expect("Failed to write config!");
 
   mods
-}
-
-/// Get mod config
-pub fn get_mod_config() -> Result<ModConfig, std::io::Error> {
-  let mods_path = get_mods_path();
-  let default_config = ModConfig {
-    disabled: vec![],
-    load_order: vec![],
-  };
-  let config_path = mods_path.join("mods.json");
-
-  if let Ok(data) = fs::read(&config_path) {
-    let config = serde_json::from_slice(&data)?;
-    return Ok(config);
-  } else {
-    // Create config
-    let config_str = serde_json::to_string(&default_config)?;
-
-    fs::write(&config_path, config_str)?;
-  }
-
-  Ok(default_config)
 }

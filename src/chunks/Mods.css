@@ -1,0 +1,59 @@
+.mods {
+  height: 87%;
+  width: 100%;
+  
+  background-color:  var(--primary);
+
+  border-radius: 10px;
+
+  margin-bottom: 1em;
+}
+
+.mods h1 {
+  text-align: center;
+}
+
+.mod-list {
+  height: 80%;
+
+  overflow: auto;
+
+  padding: 0;
+  margin: 0;
+
+  font-weight: normal;
+}
+
+.mod-item {
+  margin: 0.2em 0;
+  padding: 0.2em 1em;
+
+  cursor: default;
+
+  transition: all 0.1s ease-in-out;
+}
+
+.mod-item:hover {
+  background-color: var(--secondary);
+}
+
+/* width */
+.mod-list::-webkit-scrollbar {
+  width: 10px;
+}
+
+/* Track */
+.mod-list::-webkit-scrollbar-track {
+  background: none;
+}
+
+/* Handle */
+.mod-list::-webkit-scrollbar-thumb {
+  background: var(--secondary);
+  border-radius: 10px;
+}
+
+/* Handle on hover */
+.mod-list::-webkit-scrollbar-thumb:hover {
+  background: var(--secondary);
+} 

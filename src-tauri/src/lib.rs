@@ -24,7 +24,9 @@ pub fn run() {
       config::write_config_file,
       config::default_config,
       config::get_config,
-      game::launch
+      game::launch,
+      mods::open_mods_folder,
+      mods::replacer::get_replacer_list,
     ])
     .setup(move |app| {
       if config.skip_splash.unwrap_or(false) {

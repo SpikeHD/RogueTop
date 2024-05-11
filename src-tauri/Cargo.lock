@@ -2805,6 +2805,7 @@ dependencies = [
  "dirs",
  "mime_guess",
  "once_cell",
+ "open",
  "reqwest",
  "serde",
  "serde_json",

@@ -22,15 +22,15 @@ body {
 
 .container {
   display: flex;
-  flex-direction: column;
-  justify-content: flex-start;
+  flex-direction: row;
+  justify-content: center;
   align-items: center;
 
   padding: 0;
   margin: 0;
 
-  width: 30%;
-  height: 70%;
+  width: 100%;
+  height: 100%;
 
   background-color: none;
   color: #fff;
@@ -41,62 +41,27 @@ body {
   border-radius: 10px;
 }
 
-.mode-select {
-  height: 100%;
-  width: 100%;
-
-  background-color:  var(--primary);
-
-  border-radius: 10px;
-
+.card {
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
   align-items: center;
 
-  margin-bottom: 1em;
+  padding: 0;
+  margin: 0;
+
+  width: 30%;
+  height: 70%;
+
+  margin: 0 1em;
 }
 
-.mode {
-  width: 100%;
-  height: 20%;
-
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  align-items: center;
-
-  border-radius: 10px;
-
-  cursor: pointer;
-
-  transition: all 0.1s ease-in-out;
-}
-
-.mode.selected {
-  background-color: var(--secondary);
-  font-weight: 900;
-}
-
-.mode-title {
-  width: 70%;
-}
-
-.mode-img {
-  width: 10%;
-}
-
-.mode-lock {
-  width: 100%;
-  margin-top: 1.5em;
-}
-
-#play {
+.button {
   height: 10%;
   width: 100%;
 }
 
-#play button {
+.button button {
   border: none;
   appearance: none;
 
@@ -116,6 +81,6 @@ body {
   transition: all 0.1s ease-in-out;
 }
 
-#play button:hover {
+.button button:hover {
   background-color: var(--button-hover);
 }
