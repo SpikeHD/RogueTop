@@ -5,6 +5,7 @@ use url_escape::decode;
 
 use tauri::{path::BaseDirectory, Manager};
 
+use crate::mods::replacer::get_alt_file;
 use crate::offline::zip;
 use crate::warn;
 
@@ -39,8 +40,15 @@ pub fn start_server(app: tauri::AppHandle) {
 
     // Strip duplicate slashes
     let actual_path = actual_path.replace("//", "/");
+    let actual_path = decode(&actual_path.to_string()).into_owned();
+    let actual_pathbuf = std::path::PathBuf::from(&actual_path);
 
-    let file = zip::get_file(decode(&actual_path.to_string()).to_string());
+    // Attempt to read a modded texture first, then if that fails, just read the regular file
+    let file = if let Ok(path) = get_alt_file(actual_pathbuf) {
+      Ok(path)
+    } else {
+      zip::get_file(actual_path.to_string())
+    };
 
     match file {
       Ok(data) => {

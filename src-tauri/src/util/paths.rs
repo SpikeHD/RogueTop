@@ -43,3 +43,27 @@ pub fn config_is_local() -> bool {
 
   fs::metadata(local_config_dir).is_ok()
 }
+
+/// Get the path to textures. Should be mods/textures
+pub fn get_mods_path() -> PathBuf {
+  let path;
+
+  if config_is_local() {
+    path = std::env::current_exe()
+      .unwrap_or_default()
+      .parent()
+      .unwrap()
+      .join("mods")
+      .join("replacers");
+  } else {
+    let appdata = dirs::data_dir().unwrap_or_default();
+    path = appdata.join("roguetop").join("mods").join("replacers");
+  }
+
+  // Create if doesn't exist
+  if fs::metadata(&path).is_err() {
+    fs::create_dir_all(&path).expect("Error creating mods dir");
+  }
+
+  path
+}

@@ -1,6 +1,7 @@
 mod config;
 mod game;
 mod init_plugin;
+mod mods;
 #[cfg(feature = "offline")]
 mod offline;
 mod util;
