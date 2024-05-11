@@ -1,5 +1,6 @@
 import { registerMenuKeybind } from './keys'
 import { createNotifSection, showNotif } from './notifs'
+import { setInitialRPC } from './rpc'
 import { waitForElement } from './utils'
 
 async function init() {
@@ -28,6 +29,8 @@ async function init() {
   await waitForElement('.notif-section')
 
   showNotif('Press F1 to return to the RogueTop menu', 3000)
+
+  setInitialRPC()
 }
 
 function proxyFetch() {

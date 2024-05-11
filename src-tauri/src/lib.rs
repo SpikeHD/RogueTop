@@ -1,4 +1,5 @@
 use tauri::Manager;
+use util::discord_rpc::connect_discord_rpc;
 
 mod config;
 mod game;
@@ -23,6 +24,7 @@ pub fn run() {
       offline::api::api_request,
       util::is_dev,
       util::support::supports_offline,
+      util::discord_rpc::set_activity,
       config::read_config_file,
       config::write_config_file,
       config::default_config,
@@ -31,6 +33,15 @@ pub fn run() {
       mods::open_mods_folder,
       mods::replacer::get_replacer_list,
     ])
+    .on_window_event(|_window, event| match event {
+      tauri::WindowEvent::Destroyed { .. } => {
+        util::discord_rpc::remove_activity(); 
+      }
+      tauri::WindowEvent::CloseRequested { .. } => {
+        util::discord_rpc::remove_activity(); 
+      }
+      _ => {}
+    })
     .setup(move |app| {
       if config.skip_splash.unwrap_or(false) {
         if config.offline.unwrap_or(false) {
@@ -54,6 +65,10 @@ pub fn run() {
           game::launch(app.handle().clone());
         }
       }
+
+      connect_discord_rpc().unwrap_or_else(|e| {
+        error!("Failed to connect to Discord RPC: {}", e);
+      });
 
       Ok(())
     })
