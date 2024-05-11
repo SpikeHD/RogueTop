@@ -69,6 +69,7 @@ You can also download the latest build from [GitHub Actions](https://www.github.
 # Features
 
 * No need to play in a browser tab!
+* Mod support! See the [examples and documentation](https://github.com/SpikeHD/RogueTop/tree/main/examples).
 * Small binary size (when using a non-bundled binary), instant start time.
 * Always up-to-date (in online mode).
 
