@@ -125,6 +125,8 @@ Your built files will be in the `src-tauri/target` directory.
 - [x] Mod system/support?
   - [x] Bind of Isaac-like texture replacements?
   - [ ] JS-based mods?
+  - [ ] Config in UI
+  - [ ] Load from ZIP (mods could get quite big, would make them easier to distribute)
 - [ ] ~~Theme system/support?~~ This is basically just the mod system
 
 # Contributing

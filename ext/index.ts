@@ -13,9 +13,6 @@ async function init() {
       return window.nativeFetch(url, options)
     }
 
-    console.log(url)
-    console.log(options)
-
     // @ts-expect-error womp womp
     const response = await __TAURI_INTERNALS__.invoke('api_request', {
       url,
