@@ -40,7 +40,10 @@ Your mod must match the file structure of [PokeRogue](https://github.com/pagefau
         logo.png
     ```
 
-If you are familiar with how The Binding of Isaac mods work, this is basically the same.
+If you are familiar with how The Binding of Isaac mods work, this is basically the same. The result should be instantly noticeable, and the example provided in `mods/LogoReplacer` will result in the following:
+
+![image](https://github.com/SpikeHD/RogueTop/assets/25207995/d734b3a6-ad37-4995-9152-a9f32f09ed24)
+
 
 ## Another Example - Audio Mod
 
@@ -60,7 +63,7 @@ MyMod/
       25.m4a
 ```
 
-That's it! Your mod should now properly apply!
+That's it! Your mod should now properly apply! You can verify this by starting a new game and selecting the Pokemon in the starter selection menu (if you have them unlocked).
 
 # Good Luck!
 
