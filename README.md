@@ -70,6 +70,7 @@ You can also download the latest build from [GitHub Actions](https://www.github.
 
 * Full offline mode
 * Mod support - see the [examples and documentation](https://github.com/SpikeHD/RogueTop/tree/main/examples)
+* Discord RPC
 * Small binaries, not resource-heavy
 * Builds for platforms such as the Raspberry Pi - see the [releases](https://github.com/SpikeHD/RogueTop/releases/latest/) for a full list
 * Always up-to-date, in online mode at least :P
