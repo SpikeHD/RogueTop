@@ -6,11 +6,9 @@ This directory contains mod examples and documentation in order for you to bette
 
 ## How Modding Works
 
-Your mod will exist in it's own folder. So, if you make a mod called "MyMod", a users mods folder will look like so:
-
+Mods exist in their own folders. So, if you make or download a mod called "MyMod", the mods folder should look like so:
 ```sh
 mods/
-  mods.json
   # Your mod goes into "replacers" because it replaces files in the game
   replacers/
     MyMod/
@@ -28,7 +26,7 @@ Any changes a mod makes will apply automatically the next time the user loads th
 Your mod must match the file structure of [PokeRogue](https://github.com/pagefaultgames/pokerogue/blob/main/). Here's an example:
 
 * You want to replace the PokeRogue logo with your modified one.
-* Anything that would be in the "public" folder of the PokeRogue repository should be in the ROOT of your mod folder.
+* Anything that would be in the "public" folder of the PokeRogue repository should be in the ROOT of your "MyMod" folder.
   * In this example, you are replacing `public/images/logo.png`, so your mod folder should contain `images/logo.png` like so:
     ```sh
     # PokeRogue Structure:
@@ -46,7 +44,7 @@ If you are familiar with how The Binding of Isaac mods work, this is basically t
 
 ## Another Example - Audio Mod
 
-Now, let's say you want to replace Pikachu's battle cry. In the PokeRogue repository, the file is located at `public/audio/cry/25.m4a` (because Pikachu is Pokémon #25). So, your mod folder should look like this:
+Now, let's say you want to replace Pikachu's cry. In the PokeRogue repository, the file is located at `public/audio/cry/25.m4a` (because Pikachu is Pokémon #25). So, your mod folder should look like this:
 
 ```sh
 # PokeRogue Structure:
