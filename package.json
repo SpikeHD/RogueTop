@@ -8,7 +8,9 @@
     "build": "tsc && vite build",
     "build:ext": "esbuild --bundle --minify --target=es6 --outfile=ext/index_min.js ext/index.ts",
     "preview": "vite preview",
-    "tauri": "tauri"
+    "tauri": "tauri",
+    "lint": "eslint ./src ./ext/**/*.ts",
+    "lint:fix": "eslint --fix ./src ./ext/**/*.ts"
   },
   "dependencies": {
     "@tauri-apps/api": ">=2.0.0-beta.0",
