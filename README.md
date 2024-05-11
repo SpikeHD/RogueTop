@@ -68,10 +68,11 @@ You can also download the latest build from [GitHub Actions](https://www.github.
 
 # Features
 
-* No need to play in a browser tab!
-* Mod support! See the [examples and documentation](https://github.com/SpikeHD/RogueTop/tree/main/examples).
-* Small binary size (when using a non-bundled binary), instant start time.
-* Always up-to-date (in online mode).
+* Full offline mode
+* Mod support - see the [examples and documentation](https://github.com/SpikeHD/RogueTop/tree/main/examples)
+* Small binaries, not resource-heavy
+* Builds for platforms such as the Raspberry Pi - see the [releases](https://github.com/SpikeHD/RogueTop/releases/latest/) for a full list
+* Always up-to-date, in online mode at least :P
 
 # Building
 
@@ -98,7 +99,7 @@ You can also download the latest build from [GitHub Actions](https://www.github.
   # This will clone and build the entirety of PokeRogue into ./src-ext
   ./bootstrap_pokerogue[.sh|.cmd]
   ```
-4. (If NOT bundling for offline mode) create a fake `game.dat` folder in the root of the repository to prevent build issues
+4. (If NOT bundling for offline mode) create a fake `game.dat` file (ie. run `touch game.dat`) in the root of the repository, to prevent build issues
 5. Build it!
   ```sh
   pnpm tauri build
@@ -124,7 +125,7 @@ Your built files will be in the `src-tauri/target` directory.
 - [ ] Mobile support
 - [x] Add `.plist` for MacOS to solve HTTP issue
 - [x] Mod system/support?
-  - [x] Bind of Isaac-like texture replacements?
+  - [x] Binding of Isaac-like texture replacements?
   - [ ] JS-based mods?
   - [ ] Config in UI
   - [ ] Load from ZIP (mods could get quite big, would make them easier to distribute)
