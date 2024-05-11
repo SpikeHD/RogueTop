@@ -88,4 +88,4 @@ jobs:
         run: touch ext/index_min.js
 
       - name: Clippy check
-        run: cargo clippy --manifest-path ./src-tauri/Cargo.toml --no-default-features -- -D warnings
+        run: cargo clippy --manifest-path ./src-tauri/Cargo.toml --features offline -- -D warnings
