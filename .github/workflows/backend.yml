@@ -84,5 +84,8 @@ jobs:
       - name: Create fake game.dat
         run: touch game.dat
 
+      - name: Create fake ext file
+        run: touch ext/index_min.js
+
       - name: Clippy check
         run: cargo clippy --manifest-path ./src-tauri/Cargo.toml --no-default-features -- -D warnings
