@@ -7,6 +7,7 @@ import './Main.css'
 export function Main() {
   const [selected, setSelected] = useState('online')
   const [alwaysUse, setAlwaysUse] = useState(false)
+  const [rpc, setRPC] = useState(true)
   const [supportsOffline, setSupportsOffline] = useState(false)
 
   // Load the config
@@ -16,6 +17,7 @@ export function Main() {
       const supportsOffline: boolean = await invoke('supports_offline')
       setSupportsOffline(supportsOffline)
       setAlwaysUse(config.skip_splash)
+      setRPC(config.rpc)
       setSelected(config.offline ? 'offline' : 'online')
     })()
   }, [])
@@ -80,11 +82,12 @@ export function Main() {
 
         <div class="cbx-setting">
           <Checkbox
-            initialChecked={true}
+            initialChecked={rpc}
             id="rpc-enable"
             label={<>Enable Discord RPC<br />(requires restart)</>}
             onChange={() => {
-              setConfig('rpc', true)
+              setRPC(!rpc)
+              setConfig('rpc', !rpc)
             }}
           />
         </div>
