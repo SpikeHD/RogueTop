@@ -1,4 +1,3 @@
-use tauri::Manager;
 use util::discord_rpc::connect_discord_rpc;
 
 mod config;
@@ -36,10 +35,10 @@ pub fn run() {
     ])
     .on_window_event(|_window, event| match event {
       tauri::WindowEvent::Destroyed { .. } => {
-        util::discord_rpc::remove_activity(); 
+        util::discord_rpc::remove_activity();
       }
       tauri::WindowEvent::CloseRequested { .. } => {
-        util::discord_rpc::remove_activity(); 
+        util::discord_rpc::remove_activity();
       }
       _ => {}
     })

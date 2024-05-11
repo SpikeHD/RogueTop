@@ -1,5 +1,5 @@
-use std::fs;
 use serde::{Deserialize, Serialize};
+use std::fs;
 
 use crate::util::paths::get_mods_path;
 

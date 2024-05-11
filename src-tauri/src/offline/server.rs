@@ -32,7 +32,7 @@ pub fn start_server(app: tauri::AppHandle) {
       continue;
     }
 
-    let actual_path = if path == "/" || path == "" {
+    let actual_path = if path == "/" || path.is_empty() {
       "index.html"
     } else {
       path

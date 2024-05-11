@@ -1,7 +1,7 @@
 use std::{fs, path::PathBuf};
 
-use crate::util::paths::get_mods_path;
 use super::get_mod_config;
+use crate::util::paths::get_mods_path;
 
 /// Get a file
 pub fn get_alt_file(path: PathBuf) -> Result<Vec<u8>, std::io::Error> {
@@ -17,7 +17,10 @@ pub fn get_alt_file(path: PathBuf) -> Result<Vec<u8>, std::io::Error> {
     }
   }
 
-  Err(std::io::Error::new(std::io::ErrorKind::NotFound, "File not found"))
+  Err(std::io::Error::new(
+    std::io::ErrorKind::NotFound,
+    "File not found",
+  ))
 }
 
 /// Get mod list
@@ -29,19 +32,22 @@ pub fn get_replacer_list() -> Vec<String> {
   let mut mods = vec![];
 
   if let Ok(entries) = fs::read_dir(mods_path) {
-    for entry in entries {
-      if let Ok(entry) = entry {
-        // Check if dir, continue if not
-        if !entry.file_type().unwrap().is_dir() {
-          continue;
-        }
+    for entry in entries.flatten() {
+      // Check if dir, continue if not
+      if !entry.file_type().unwrap().is_dir() {
+        continue;
+      }
 
-        mods.push(entry.file_name().to_string_lossy().to_string());
+      mods.push(entry.file_name().to_string_lossy().to_string());
 
-        // If this mod didn't exist in the config, add it to the load order
-        if !mod_config.load_order.contains(&entry.file_name().to_string_lossy().to_string()) {
-          mod_config.load_order.push(entry.file_name().to_string_lossy().to_string());
-        }
+      // If this mod didn't exist in the config, add it to the load order
+      if !mod_config
+        .load_order
+        .contains(&entry.file_name().to_string_lossy().to_string())
+      {
+        mod_config
+          .load_order
+          .push(entry.file_name().to_string_lossy().to_string());
       }
     }
   }

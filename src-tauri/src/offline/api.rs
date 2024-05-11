@@ -1,7 +1,7 @@
 use serde::{Deserialize, Serialize};
 use tiny_http::Request;
 
-use crate::{log, warn, LOCAL_URL};
+use crate::{success, warn, LOCAL_URL};
 
 #[derive(Serialize, Deserialize)]
 struct Options {
@@ -21,7 +21,7 @@ pub fn api_request(url: String, options: String) -> String {
     .split_once("http://")
     .unwrap_or(("", ""))
     .1
-    .split_once("/")
+    .split_once('/')
     .unwrap_or(("", ""))
     .1;
   let url = format!("{}/api/{}", LOCAL_URL, path);
@@ -37,7 +37,7 @@ pub fn api_request(url: String, options: String) -> String {
   match response {
     Ok(response) => {
       let text = response.text().unwrap();
-      log!("Response: {:?}", text);
+      success!("Response: {:?}", text);
 
       text
     }
@@ -59,14 +59,12 @@ pub fn handle_request(request: &mut Request) -> String {
     .split_once("api/")
     .unwrap_or(("", ""))
     .1
-    .split_once("/")
+    .split_once('/')
     .unwrap_or(("", ""))
     .0;
 
-  match path {
-    _ => {
-      warn!("Unimplemented API path: {}", path);
-      "".to_string()
-    }
+  {
+    warn!("Unimplemented API path: {}", path);
+    "".to_string()
   }
 }
