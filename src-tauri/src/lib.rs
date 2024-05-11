@@ -1,3 +1,5 @@
+use tauri::Manager;
+
 mod config;
 mod game;
 mod init_plugin;
@@ -19,6 +21,7 @@ pub fn run() {
     .invoke_handler(tauri::generate_handler![
       #[cfg(feature = "offline")]
       offline::api::api_request,
+      util::is_dev,
       util::support::supports_offline,
       config::read_config_file,
       config::write_config_file,

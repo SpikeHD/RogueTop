@@ -1,6 +1,36 @@
+import { registerMenuKeybind } from './keys'
+import { createNotifSection, showNotif } from './notifs'
+import { waitForElement } from './utils'
+
 async function init() {
   console.log('RogueTop injected successfully!')
+  
+  proxyFetch()
 
+  // If we are not actually in pokerogue, but in the main menu, don't do anything
+  if (await waitForElement('#root', 1000).catch(() => null) !== null) {
+    console.log('Not in pokerogue, don\'t mind me!')
+    return
+  }
+
+  // Register binds
+  registerMenuKeybind()
+
+  console.log('Fetch proxied successfully!')
+
+  // Inject the notification section
+  if (document.querySelector('.notif-section') === null) {
+    createNotifSection()
+  }
+
+  console.log('Notif section created successfully!')
+
+  await waitForElement('.notif-section')
+
+  showNotif('Press F1 to return to the RogueTop menu', 3000)
+}
+
+function proxyFetch() {
   // overwrite fetch to send to the Tauri backend
   // @ts-expect-error womp womp
   window.nativeFetch = window.fetch

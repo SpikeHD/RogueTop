@@ -82,6 +82,11 @@ export function Main() {
         id="play"
         class="button"
         onClick={() => {
+          // If the buidl doesn't support offline but offline is selected, don't launch
+          if (!supportsOffline && selected === 'offline') {
+            return
+          }
+
           invoke('launch')
         }}
       >
