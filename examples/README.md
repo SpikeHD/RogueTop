@@ -6,11 +6,9 @@ This directory contains mod examples and documentation in order for you to bette
 
 ## How Modding Works
 
-Your mod will exist in it's own folder. So, if you make a mod called "MyMod", a users mods folder will look like so:
-
+Mods exist in their own folders. So, if you make or download a mod called "MyMod", the mods folder should look like so:
 ```sh
 mods/
-  mods.json
   # Your mod goes into "replacers" because it replaces files in the game
   replacers/
     MyMod/
