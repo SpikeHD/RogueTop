@@ -13,6 +13,11 @@
   text-align: center;
 }
 
+.no-mods {
+  text-align: center;
+  font-weight: normal;
+}
+
 .mod-list {
   height: 80%;
 

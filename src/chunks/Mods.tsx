@@ -26,7 +26,7 @@ export function Mods() {
               ))}
             </div>
           ) : (
-            <p>No mods installed!</p>
+            <p class="no-mods">No mods installed!</p>
           )
         }
       </div>
