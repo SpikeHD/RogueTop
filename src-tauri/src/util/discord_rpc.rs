@@ -19,6 +19,11 @@ pub fn connect_discord_rpc() -> Result<(), Box<dyn std::error::Error>> {
   Ok(())
 }
 
+#[tauri::command]
+pub fn rpc_enabled() -> bool {
+  CLIENT.lock().unwrap().is_some()
+}
+
 // TODO - maybe add images?
 #[tauri::command]
 pub fn set_activity(

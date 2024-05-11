@@ -25,6 +25,7 @@ pub fn run() {
       util::is_dev,
       util::support::supports_offline,
       util::discord_rpc::set_activity,
+      util::discord_rpc::rpc_enabled,
       config::read_config_file,
       config::write_config_file,
       config::default_config,
@@ -66,9 +67,11 @@ pub fn run() {
         }
       }
 
-      connect_discord_rpc().unwrap_or_else(|e| {
-        error!("Failed to connect to Discord RPC: {}", e);
-      });
+      if config.rpc.unwrap_or(false) {
+        connect_discord_rpc().unwrap_or_else(|e| {
+          error!("Failed to connect to Discord RPC: {}", e);
+        });
+      }
 
       Ok(())
     })

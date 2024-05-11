@@ -66,7 +66,7 @@ export function Main() {
           </div>
         )}
 
-        <div class="mode-lock">
+        <div class="cbx-setting">
           <Checkbox
             initialChecked={alwaysUse}
             id="always-use"
@@ -74,6 +74,17 @@ export function Main() {
             onChange={() => {
               setAlwaysUse(!alwaysUse)
               setConfig('skip_splash', !alwaysUse)
+            }}
+          />
+        </div>
+
+        <div class="cbx-setting">
+          <Checkbox
+            initialChecked={true}
+            id="rpc-enable"
+            label={<>Enable Discord RPC<br />(requires restart)</>}
+            onChange={() => {
+              setConfig('rpc', true)
             }}
           />
         </div>

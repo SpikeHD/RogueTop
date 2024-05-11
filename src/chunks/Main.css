@@ -43,7 +43,16 @@
   width: 10%;
 }
 
-.mode-lock {
-  width: 100%;
-  margin-top: 1.5em;
+.cbx-setting {
+  width: 80%;
+  margin-top: 1em;
+}
+
+.cbx-setting .checkbox {
+  text-align: center;
+}
+
+/* labels without checkox-box class are the text */
+.cbx-setting label:not(.checkbox-box) {
+  width: 90%;
 }

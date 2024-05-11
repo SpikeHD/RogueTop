@@ -1,11 +1,12 @@
 import { useState } from 'preact/hooks'
+import { JSX } from 'preact/jsx-runtime'
 
 import './Checkbox.css'
 
 interface Props {
   id: string
   initialChecked?: boolean
-  label?: string
+  label?: string | JSX.Element
   onChange?: (checked: boolean) => void
 }
 

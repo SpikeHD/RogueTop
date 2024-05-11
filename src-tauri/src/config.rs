@@ -8,6 +8,7 @@ use crate::util::paths::get_config_dir;
 pub struct Config {
   pub skip_splash: Option<bool>,
   pub offline: Option<bool>,
+  pub rpc: Option<bool>,
 }
 
 pub fn init() {
@@ -37,6 +38,7 @@ pub fn default_config() -> Config {
   Config {
     skip_splash: Some(false),
     offline: Some(false),
+    rpc: Some(true),
   }
 }
 
