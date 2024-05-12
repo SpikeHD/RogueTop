@@ -8,7 +8,14 @@ export function Main() {
   const [selected, setSelected] = useState('online')
   const [alwaysUse, setAlwaysUse] = useState(false)
   const [rpc, setRPC] = useState(true)
+  const [mobilePlatforms, setMobilePlatforms] = useState({
+    isMobile: false,
+    isAndroid: false,
+    isIOS: false,
+  })
   const [supportsOffline, setSupportsOffline] = useState(false)
+
+  const [test, setTest] = useState('' as string)
 
   // Load the config
   useEffect(() => {
@@ -18,6 +25,11 @@ export function Main() {
       setSupportsOffline(supportsOffline)
       setAlwaysUse(config.skip_splash)
       setRPC(config.rpc)
+      setMobilePlatforms({
+        isMobile: await invoke('is_mobile'),
+        isAndroid: await invoke('is_android'),
+        isIOS: await invoke('is_ios'),
+      })
       setSelected(config.offline ? 'offline' : 'online')
     })()
   }, [])
@@ -44,7 +56,7 @@ export function Main() {
             setConfig('offline', false)
           }}
         >
-          <span class="mode-title">Online (RECOMMENDED)</span>
+          <span class="mode-title">Online</span>
 
           <div class="mode-img">
             <img src="arrow.svg" alt="Offline" />
@@ -60,7 +72,7 @@ export function Main() {
               setConfig('offline', true)
             }}
           >
-            <span class="mode-title">Offline (LOCAL)</span>
+            <span class="mode-title">Offline</span>
 
             <div class="mode-img">
               <img src="arrow.svg" alt="Offline" />
@@ -68,29 +80,31 @@ export function Main() {
           </div>
         )}
 
-        <div class="cbx-setting">
-          <Checkbox
-            initialChecked={alwaysUse}
-            id="always-use"
-            label="Always use this mode"
-            onChange={() => {
-              setAlwaysUse(!alwaysUse)
-              setConfig('skip_splash', !alwaysUse)
-            }}
-          />
-        </div>
-
-        <div class="cbx-setting">
-          <Checkbox
-            initialChecked={rpc}
-            id="rpc-enable"
-            label={<>Enable Discord RPC<br />(requires restart)</>}
-            onChange={() => {
-              setRPC(!rpc)
-              setConfig('rpc', !rpc)
-            }}
-          />
-        </div>
+        {
+          mobilePlatforms.isMobile ? null : (
+            <>
+              <div class="cbx-setting">
+                <Checkbox
+                  initialChecked={alwaysUse}
+                  id="always-use"
+                  label="Always use this mode"
+                  onChange={() => {
+                    setAlwaysUse(!alwaysUse)
+                    setConfig('skip_splash', !alwaysUse)
+                  } } />
+              </div><div class="cbx-setting">
+                <Checkbox
+                  initialChecked={rpc}
+                  id="rpc-enable"
+                  label={<>Enable Discord RPC<br />(requires restart)</>}
+                  onChange={() => {
+                    setRPC(!rpc)
+                    setConfig('rpc', !rpc)
+                  } } />
+              </div>
+            </>
+          )
+        }
       </div>
       <div
         id="play"

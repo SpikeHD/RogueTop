@@ -21,6 +21,9 @@ pub fn run() {
     .invoke_handler(tauri::generate_handler![
       util::is_dev,
       util::support::supports_offline,
+      util::support::is_mobile,
+      util::support::is_ios,
+      util::support::is_android,
       util::discord_rpc::set_activity,
       util::discord_rpc::rpc_enabled,
       config::read_config_file,
