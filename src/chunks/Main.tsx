@@ -15,8 +15,6 @@ export function Main() {
   })
   const [supportsOffline, setSupportsOffline] = useState(false)
 
-  const [test, setTest] = useState('' as string)
-
   // Load the config
   useEffect(() => {
     (async () => {
