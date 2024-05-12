@@ -19,8 +19,6 @@ pub fn run() {
     .plugin(tauri_plugin_shell::init())
     .plugin(init_plugin::init())
     .invoke_handler(tauri::generate_handler![
-      #[cfg(feature = "offline")]
-      offline::api::api_request,
       util::is_dev,
       util::support::supports_offline,
       util::discord_rpc::set_activity,

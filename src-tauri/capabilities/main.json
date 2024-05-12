@@ -3,6 +3,13 @@
   "identifier": "main-capability",
   "description": "Capability for the main window",
   "windows": ["main"],
+  "platforms": [
+    "macOS",
+    "windows",
+    "linux",
+    "iOS",
+    "android"
+  ],
   "permissions": [
     "path:default",
     "event:default",
