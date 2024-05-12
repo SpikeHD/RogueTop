@@ -22,6 +22,7 @@ pub fn run() {
       #[cfg(feature = "offline")]
       offline::api::api_request,
       util::is_dev,
+      util::screen::toggle_fullscreen,
       util::support::supports_offline,
       util::discord_rpc::set_activity,
       util::discord_rpc::rpc_enabled,

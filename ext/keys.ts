@@ -7,5 +7,11 @@ export async function registerMenuKeybind() {
   
       window.location.href = isDev ? 'http://localhost:1420' : 'http://tauri.localhost'
     }
+
+    // F for fullscreen
+    if (e.key === 'F') {
+      // @ts-expect-error womp womp
+      await __TAURI_INTERNALS__.invoke('toggle_fullscreen')
+    }
   })
 }
