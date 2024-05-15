@@ -120,8 +120,8 @@ Your built files will be in the `src-tauri/target` directory.
   - [x] TODO finish this
 - [ ] Downloadable offline mode (update-able without redownloading a new binary every time)
 - [x] Separate "lite" builds that are online-only
-- [ ] Hotkeys
-  - [ ] Fullscreen
+- [x] Hotkeys
+  - [x] Fullscreen
   - [ ] TBD
 - [ ] Mobile support
 - [x] Add `.plist` for MacOS to solve HTTP issue
