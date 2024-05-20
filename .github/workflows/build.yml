@@ -356,7 +356,7 @@ jobs:
         run: touch game.dat
 
       - name: Build for iOS
-        run: APPLE_DEVELOPMENT_TEAM="SpikeHD" pnpm tauri ios build
+        run: pnpm tauri ios build
 
       - name: DEBUG find the ipa
         run: find ./src-tauri/target/aarch64-apple-ios/release -name '*.ipa'

@@ -33,6 +33,9 @@
     ],
     "resources": [
       "../game.dat"
-    ]
+    ],
+    "iOS": {
+      "developmentTeam": "SpikeHD (Personal Team)"
+    }
   }
 }
