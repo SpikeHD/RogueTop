@@ -276,6 +276,49 @@ jobs:
           name: roguetop-${{ matrix.features }}-${{ matrix.config.target }}-dmg
           path: src-tauri/target/${{ matrix.config.target }}/release/bundle/dmg/*.dmg
 
+  build_mobile:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions-rust-lang/setup-rust-toolchain@v1.8
+      - uses: pnpm/action-setup@v3
+        with:
+          version: latest
+
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup node
+        uses: actions/setup-node@v4
+        with:
+          node-version: latest
+
+      - name: Setup Java
+        uses: actions/setup-java@v3
+        with:
+          distribution: 'temurin'
+          java-version: 17
+  
+      - name: Setup Android SDK
+        uses: android-actions/setup-android@v3
+        
+      - name: Install NDK with SDK
+        run: sdkmanager --install ndk-bundle
+
+      - name: Set NDK_HOME to ANDROID_HOME/ndk/$(ls -1 $ANDROID_HOME/ndk)
+        run: echo "NDK_HOME=$ANDROID_HOME/ndk/$(ls -1 $ANDROID_HOME/ndk)" >> $GITHUB_ENV
+
+      - name: Install dependencies
+        run: pnpm install
+
+      - name: Build injection extension
+        run: pnpm build:ext
+
+      - name: Build mobile
+        run: pnpm tauri android build --release
+
+      - name: DEBUG find the apk
+        run: find ./src-tauri/target/aarch64-linux-android/release -name '*.apk'
+
   release:
     needs: build
     runs-on: ubuntu-latest
