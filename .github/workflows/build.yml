@@ -307,6 +307,9 @@ jobs:
       - name: Set NDK_HOME
         run: echo "NDK_HOME=$ANDROID_HOME/ndk/$(ls -1 $ANDROID_HOME/ndk | head -1)" >> $GITHUB_ENV
 
+      - name: Add android target
+        run: rustup target add aarch64-linux-android
+
       - name: Install dependencies
         run: pnpm install
 
