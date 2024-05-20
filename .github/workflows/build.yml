@@ -304,8 +304,8 @@ jobs:
       - name: Install NDK with SDK
         run: sdkmanager --install ndk-bundle
 
-      - name: Set NDK_HOME to ANDROID_HOME/ndk/$(ls -1 $ANDROID_HOME/ndk)
-        run: echo "NDK_HOME=$ANDROID_HOME/ndk/$(ls -1 $ANDROID_HOME/ndk)" >> $GITHUB_ENV
+      - name: Set NDK_HOME
+        run: echo "NDK_HOME=$ANDROID_HOME/ndk/$(ls -1 $ANDROID_HOME/ndk | head -1)" >> $GITHUB_ENV
 
       - name: Install dependencies
         run: pnpm install
