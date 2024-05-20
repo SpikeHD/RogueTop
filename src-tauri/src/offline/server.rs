@@ -23,15 +23,6 @@ pub fn start_server(app: tauri::AppHandle) {
   for mut request in server.incoming_requests() {
     let path = request.url().strip_prefix('/').unwrap_or(request.url());
 
-    // If this is a request to the API, hand it off
-    if path.starts_with("api/") {
-      let result = crate::offline::api::handle_request(&mut request);
-      request
-        .respond(Response::from_string(result))
-        .expect("failed to respond to request");
-      continue;
-    }
-
     let actual_path = if path == "/" || path.is_empty() {
       "index.html"
     } else {
