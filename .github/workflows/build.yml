@@ -314,7 +314,7 @@ jobs:
         run: pnpm build:ext
 
       - name: Build mobile
-        run: pnpm tauri android build --release
+        run: pnpm tauri android build
 
       - name: DEBUG find the apk
         run: find ./src-tauri/target/aarch64-linux-android/release -name '*.apk'
