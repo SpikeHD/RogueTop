@@ -33,6 +33,7 @@ pub fn run() {
       game::launch,
       mods::open_mods_folder,
       mods::get_mods_list,
+      mods::plugin::load_all_plugins
     ])
     .on_window_event(|_window, event| match event {
       tauri::WindowEvent::Destroyed { .. } => {

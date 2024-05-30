@@ -19,6 +19,11 @@ async function init() {
 
   console.log('Fetch proxied successfully!')
 
+  // load user plugins
+  console.log('Loading user plugins...')
+  // @ts-expect-error womp womp
+  await __TAURI_INTERNALS__.invoke('load_all_plugins')
+
   // Inject the notification section
   if (document.querySelector('.notif-section') === null) {
     createNotifSection()
