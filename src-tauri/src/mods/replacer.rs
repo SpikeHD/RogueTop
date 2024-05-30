@@ -35,7 +35,7 @@ pub fn get_replacer_list() -> Vec<String> {
         continue;
       }
 
-      let name = format!("replacers/{}", entry.file_name().to_string_lossy().to_string());
+      let name = format!("replacers/{}", entry.file_name().to_string_lossy());
 
       mods.push(name);
     }

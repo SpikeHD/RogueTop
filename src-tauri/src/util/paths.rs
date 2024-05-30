@@ -64,8 +64,8 @@ pub fn get_mods_path() -> PathBuf {
     let replacer_path = path.join("replacer");
     let plugins_path = path.join("plugins");
 
-    fs::create_dir_all(&replacer_path).expect("Error creating replacer dir");
-    fs::create_dir_all(&plugins_path).expect("Error creating plugins dir");
+    fs::create_dir_all(replacer_path).expect("Error creating replacer dir");
+    fs::create_dir_all(plugins_path).expect("Error creating plugins dir");
   }
 
   path

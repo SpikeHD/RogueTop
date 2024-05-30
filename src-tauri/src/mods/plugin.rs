@@ -20,7 +20,7 @@ pub fn load_plugin(win: &tauri::WebviewWindow, name: String) {
   match win.eval(&plugin_code) {
     Ok(_) => {
       success!("Loaded plugin: {}", name)
-    },
+    }
     Err(e) => {
       error!("Failed to load plugin: {}", e);
     }
@@ -31,14 +31,19 @@ pub fn load_plugin(win: &tauri::WebviewWindow, name: String) {
 #[tauri::command]
 pub fn load_all_plugins(win: tauri::WebviewWindow) {
   let mod_config = get_mod_config().unwrap();
-  let plugins = mod_config.load_order.iter().filter(|x| x.starts_with("plugins/") && !mod_config.disabled.contains(x)).map(|x| x.replace("plugins/", "")).collect::<Vec<_>>();
+  let plugins = mod_config
+    .load_order
+    .iter()
+    .filter(|x| x.starts_with("plugins/") && !mod_config.disabled.contains(x))
+    .map(|x| x.replace("plugins/", ""))
+    .collect::<Vec<_>>();
 
   for plugin in plugins {
     load_plugin(&win, plugin);
   }
 }
 
-/// Get list of plugins 
+/// Get list of plugins
 #[tauri::command]
 pub fn get_plugin_list() -> Vec<String> {
   let plugins_path = get_plugins_path();
@@ -51,7 +56,7 @@ pub fn get_plugin_list() -> Vec<String> {
         continue;
       }
 
-      let name = format!("plugins/{}", entry.file_name().to_string_lossy().to_string());
+      let name = format!("plugins/{}", entry.file_name().to_string_lossy());
 
       mods.push(name);
     }

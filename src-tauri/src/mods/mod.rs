@@ -9,8 +9,8 @@ pub struct ModConfig {
   pub load_order: Vec<String>,
 }
 
-pub mod replacer;
 pub mod plugin;
+pub mod replacer;
 
 #[tauri::command]
 pub fn open_mods_folder() {
@@ -54,13 +54,8 @@ pub fn get_mods_list() -> Result<Vec<String>, tauri::Error> {
     mods.push(mod_name.clone());
 
     // If this mod didn't exist in the config, add it to the load order
-    if !mod_config
-      .load_order
-      .contains(&mod_name)
-    {
-      mod_config
-        .load_order
-        .push(mod_name);
+    if !mod_config.load_order.contains(&mod_name) {
+      mod_config.load_order.push(mod_name);
     }
   }
 
@@ -68,13 +63,8 @@ pub fn get_mods_list() -> Result<Vec<String>, tauri::Error> {
     mods.push(mod_name.clone());
 
     // If this mod didn't exist in the config, add it to the load order
-    if !mod_config
-      .load_order
-      .contains(&mod_name)
-    {
-      mod_config
-        .load_order
-        .push(mod_name);
+    if !mod_config.load_order.contains(&mod_name) {
+      mod_config.load_order.push(mod_name);
     }
   }
 
@@ -84,7 +74,7 @@ pub fn get_mods_list() -> Result<Vec<String>, tauri::Error> {
 
   let mods_str = serde_json::to_string(&mod_config)?;
 
-  fs::write(&mods_json, mods_str)?;
+  fs::write(mods_json, mods_str)?;
 
   Ok(mods)
 }
