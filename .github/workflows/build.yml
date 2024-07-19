@@ -320,11 +320,22 @@ jobs:
 
       - name: Create release using all artifacts
         uses: softprops/action-gh-release@v2
+        if: github.event_name != 'schedule'
         with:
           files: artifacts/**
           token: ${{ secrets.GITHUB_TOKEN }}
           # Release name is the tag name
-          name: ${{ github.ref_name }} - ${{ github.sha }}${{ github.event_name && github.event_name == 'schedule' && ' (nightly)' || '' }}
+          name: ${{ github.ref_name }} - ${{ github.sha }}
           draft: false
           generate_release_notes: true
           prerelease: false
+
+      # if this is a nightly build, update one release continuously
+      - name: Update nightly release
+        uses: johnwbyrd/update-release@v1.0.0
+        if: github.event_name == 'schedule'
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          tag: nightly
+          body: Nightly build
+          files: artifacts/**
