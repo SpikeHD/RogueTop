@@ -127,7 +127,7 @@ Your built files will be in the `src-tauri/target` directory.
 - [x] Add `.plist` for MacOS to solve HTTP issue
 - [x] Mod system/support?
   - [x] Binding of Isaac-like texture replacements?
-  - [ ] JS-based mods?
+  - [x] JS-based mods?
   - [ ] Config in UI
   - [ ] Load from ZIP (mods could get quite big, would make them easier to distribute)
 - [ ] ~~Theme system/support?~~ This is basically just the mod system
