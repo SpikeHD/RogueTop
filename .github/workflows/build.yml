@@ -332,10 +332,15 @@ jobs:
 
       # if this is a nightly build, update one release continuously
       - name: Update nightly release
-        uses: johnwbyrd/update-release@v1.0.0
+        uses: joutvhu/create-release@v1
         if: github.event_name == 'schedule'
         with:
-          token: ${{ secrets.GITHUB_TOKEN }}
-          tag: nightly
+          tag_name: nightly
+          name: Nightly
           body: Nightly build
-          files: artifacts/**
+          draft: false
+          prerelease: true
+          remove_assets: true
+          on_release_exists: update
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
