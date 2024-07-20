@@ -330,17 +330,10 @@ jobs:
           generate_release_notes: true
           prerelease: false
 
-      # if this is a nightly build, update one release continuously
-      - name: Update nightly release
-        uses: joutvhu/create-release@v1
+      # (nightly) upload artifacts to the nightly release
+      - name: Upload nightly artifacts
         if: github.event_name == 'schedule'
-        with:
-          tag_name: nightly
-          name: Nightly
-          body: Nightly build
-          draft: false
-          prerelease: true
-          remove_assets: true
-          on_release_exists: update
+        run:
+          gh release upload nightly artifacts/**/*
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
