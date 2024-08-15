@@ -33,7 +33,7 @@ pub fn launch(app: tauri::AppHandle) -> bool {
   }
 
   if let Some(mut win) = app.get_webview_window("main") {
-    win.navigate(url);
+    win.navigate(url).unwrap_or_default();
   }
 
   // If we are offline, start the offline server in a new thread

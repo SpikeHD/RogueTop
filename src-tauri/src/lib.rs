@@ -17,6 +17,7 @@ pub fn run() {
 
   tauri::Builder::default()
     .plugin(tauri_plugin_shell::init())
+    .plugin(tauri_plugin_gamepad::init())
     .plugin(init_plugin::init())
     .invoke_handler(tauri::generate_handler![
       #[cfg(feature = "offline")]

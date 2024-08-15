@@ -37,4 +37,5 @@ zip = "2.1.1"
 reqwest = { version = "0.12.4", features = [ "blocking" ] }
 open = "5.1.2"
 discord-rich-presence = "0.2.3"
+tauri-plugin-gamepad = "0.0.3"
 
