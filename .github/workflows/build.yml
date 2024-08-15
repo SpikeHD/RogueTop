@@ -337,6 +337,6 @@ jobs:
       - name: Upload nightly artifacts
         if: github.event_name == 'schedule'
         run:
-          gh release upload nightly artifacts/**/*
+          gh release upload nightly artifacts/**/* --clobber
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
