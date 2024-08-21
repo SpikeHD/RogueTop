@@ -3,6 +3,10 @@
   "identifier": "main-capability",
   "description": "Capability for the main window",
   "windows": ["main"],
+  "local": true,
+  "remote": {
+    "urls": ["https://pokerogue.net/"]
+  },
   "permissions": [
     "core:path:default",
     "core:event:default",
@@ -11,6 +15,7 @@
     "core:resources:default",
     "core:menu:default",
     "core:tray:default",
-    "core:webview:allow-internal-toggle-devtools"
+    "core:webview:allow-internal-toggle-devtools",
+    "gamepad:default"
   ]
 }
