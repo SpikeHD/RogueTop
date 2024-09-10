@@ -23,34 +23,77 @@
 
 # Installation
 
-## Quick Links
+<table align="center">
+  <tr>
+    <th>
+      <img src="docs/image/windows.png" width="30%" align="center" />
+    </th>
+    <th>
+      <img src="docs/image/apple.png" width="30%" align="center" />
+    </th>
+    <th>
+      <img src="docs/image/debian.png" width="30%" align="center" />
+    </th>
+  </tr>
 
-* Windows
-  * [Installer Download](https://github.com/SpikeHD/RogueTop/releases/latest/download/roguetop-default-x86_64-pc-windows-msvc-msi.msi) | [Offline Version](https://github.com/SpikeHD/RogueTop/releases/latest/download/roguetop-offline-x86_64-pc-windows-msvc-msi.msi)
-  * [Portable Download](https://github.com/SpikeHD/RogueTop/releases/latest/download/roguetop-default-x86_64-pc-windows-msvc-portable.zip) | [Offline Version](https://github.com/SpikeHD/RogueTop/releases/latest/download/roguetop-offline-x86_64-pc-windows-msvc-portable.zip)
-* Linux
-  * [Debian-based Download](https://github.com/SpikeHD/RogueTop/releases/latest/download/roguetop-default-x86_64-unknown-linux-gnu-deb.deb) | [Offline Version](https://github.com/SpikeHD/RogueTop/releases/latest/download/roguetop-offline-x86_64-unknown-linux-gnu-deb.deb)
-  * [Portable Download](https://github.com/SpikeHD/RogueTop/releases/latest/download/roguetop-default-x86_64-pc-windows-msvc-portable.zip ) | [Offline Version](https://github.com/SpikeHD/RogueTop/releases/latest/download/roguetop-offline-x86_64-pc-windows-msvc-portable.deb)
-* MacOS
-  * [Intel-based Download](https://github.com/SpikeHD/RogueTop/releases/latest/download/roguetop-default-x86_64-apple-darwin-dmg.dmg) | [Offline Version](https://github.com/SpikeHD/RogueTop/releases/latest/download/roguetop-offline-x86_64-apple-darwin-dmg.dmg)
-  * [M-series-based Download](https://github.com/SpikeHD/RogueTop/releases/latest/download/roguetop-default-aarch64-apple-darwin-dmg.dmg) | [Offline Version](https://github.com/SpikeHD/RogueTop/releases/latest/download/roguetop-offline-aarch64-apple-darwin-dmg.dmg)
- 
-*These releases may fall out of date as PokeRogue updates. If you want to always have the latest version, download a [nightly release](https://github.com/SpikeHD/RogueTop/releases/tag/nightly)*
+  <tr>
+    <td width="30%">
+      <div align="center">
+        <span>x86_64:</span>
+        <a href="https://github.com/SpikeHD/RogueTop/releases/latest/download/roguetop-default-x86_64-pc-windows-msvc-msi.msi">Online-only</a>
+        <span>|</span>
+        <a href="https://github.com/SpikeHD/RogueTop/releases/latest/download/roguetop-offline-x86_64-pc-windows-msvc-msi.msi">Offline</a>
+        <br />
+        <span>ARM64:</span>
+        <a href="https://github.com/SpikeHD/RogueTop/releases/latest/download/roguetop-default-aarch64-pc-windows-msvc-nsis.exe ">Online-only</a>
+        <span>|</span>
+        <a href="https://github.com/SpikeHD/RogueTop/releases/latest/download/roguetop-offline-aarch64-pc-windows-msvc-nsis.exe">Offline</a>
+      </div>
+    </td>
+    <td width="30%">
+      <div align="center">
+        <span>x86_64:</span>
+        <a href="https://github.com/SpikeHD/RogueTop/releases/latest/download/roguetop-default-x86_64-apple-darwin-dmg.dmg">Online-only</a>
+        <span>|</span>
+        <a href="https://github.com/SpikeHD/RogueTop/releases/latest/download/roguetop-offline-x86_64-apple-darwin-dmg.dmg">Offline</a>
+        <br />
+        <span>ARM64:</span>
+        <a href="https://github.com/SpikeHD/RogueTop/releases/latest/download/roguetop-default-aarch64-apple-darwin-dmg.dmg">Online-only</a>
+        <span>|</span>
+        <a href="https://github.com/SpikeHD/RogueTop/releases/latest/download/roguetop-offline-aarch64-apple-darwin-dmg.dmg">Offline</a>
+      </div>
+    </td>
+    <td width="30%">
+      <div align="center">
+        <span>x86_64:</span>
+        <a href="https://github.com/SpikeHD/RogueTop/releases/latest/download/roguetop-default-x86_64-unknown-linux-gnu-deb.deb">Online-only</a>
+        <span>|</span>
+        <a href="https://github.com/SpikeHD/RogueTop/releases/latest/download/roguetop-offline-x86_64-unknown-linux-gnu-deb.deb">Offline</a>
+        <br />
+        <span>ARM64:</span>
+        <a href="https://github.com/SpikeHD/RogueTop/releases/latest/download/roguetop-default-aarch64-unknown-linux-gnu-deb.deb">Online-only</a>
+        <span>|</span>
+        <a href="https://github.com/SpikeHD/RogueTop/releases/latest/download/roguetop-offline-aarch64-unknown-linux-gnu-deb.deb">Offline</a>
+        <br />
+        <span>ARMv7:</span>
+        <a href="https://github.com/SpikeHD/RogueTop/releases/latest/download/roguetop-default-armv7-unknown-linux-gnueabihf-deb.deb">Online-only</a>
+        <span>|</span>
+        <a href="https://github.com/SpikeHD/RogueTop/releases/latest/download/roguetop-offline-armv7-unknown-linux-gnueabihf-deb.deb">Offline</a>
+      </div>
+    </td>
+  </tr>
+</table>
+
+*You can also download portable versions for each platform, which you can find on the [releases](https://github.com/SpikeHD/RogueTop/releases/tag/nightly) page.* 
 
 > [!NOTE]
 > ***MacOS Users***: If opening the app gives you "PokeRogue.app is damaged and cannot be opened", MacOS is lying to you and you may just need to run `sudo xattr -rd com.apple.quarantine /Applications/PokeRogue.app`.
 >
 > ***Windows Users***: Defender may think RogueTop is a virus. This just happens sometimes, and if SmartScreen blocks it from running, click "More Info" and "Run Anyways". Feel free to scan RogueTop with [Virustotal](https://www.virustotal.com/gui/home/upload)!
 
-## Other Architectures
+## Online vs Offline
 
-The file you download depends on your operating system:
-
-* For Windows, download the `.msi` installer file, or the `pc-windows` ZIP file. Builds are also provided for arm64.
-* For Linux, download the `.deb` installer files, or the `unknown-linux` ZIP file. Builds are also provided for armv7 and arm64.
-* For MacOS, download the `.dmg` installer file, or the `apple-darwin` ZIP file. Builds are provided for both Intel-based (x86_64) and M-series-based MacOS systems (arm64).
-
-Releases also come in two flavors, regular and "offline". Regular versions are very lightweight, and will load the online version of PokeRogue. Offline versions are larger, but contain the entirety of PokeRogue within the binary, and can be run without an internet connection!
+RogueTop comes in two flavors, regular and "offline". Regular versions are very lightweight (usually **<5mb**), and will load the online version of PokeRogue. Offline versions are significantly larger (around **450mb**), but contain the entirety of PokeRogue within the binary, and can be run without an internet connection! Offline versions allow access in BOTH online and offline scenarios.
 
 ## Alternative Installation Methods
 
@@ -60,7 +103,7 @@ You can also download the latest build from [GitHub Actions](https://www.github.
 
 * [Installation](#installation)
   * [Quick Links](#quick-links)
-  * [Other Architectures](#other-architectures)
+  * [Online vs Offline](#online-vs-offline)
   * [Alternative Installation Methods](#alternative-installation-methods)
 * [Building](#building)
   * [Prerequisites](#prerequisites)

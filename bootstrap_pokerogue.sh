@@ -12,7 +12,7 @@ pnpm build
 
 # Compress dist folder to "game.dat"
 cd dist
-zip -5 -q -r game.zip .
+zip -9 -q -r game.zip .
 mv game.zip ../../game.dat
 
 cd ../..

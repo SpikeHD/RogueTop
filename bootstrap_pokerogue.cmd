@@ -12,6 +12,6 @@ pnpm build
 
 @REM Compress dist folder to "game.dat"
 cd dist
-7z a -tzip -mx5 -r ../../game.dat *
+7z a -tzip -mx9 -r ../../game.dat *
 
 cd ../..
