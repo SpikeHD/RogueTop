@@ -20,11 +20,12 @@ pub fn run() {
     .plugin(tauri_plugin_gamepad::init())
     .plugin(init_plugin::init())
     .invoke_handler(tauri::generate_handler![
-      #[cfg(feature = "offline")]
-      offline::api::api_request,
       util::is_dev,
       util::screen::toggle_fullscreen,
       util::support::supports_offline,
+      util::support::is_mobile,
+      util::support::is_ios,
+      util::support::is_android,
       util::discord_rpc::set_activity,
       util::discord_rpc::rpc_enabled,
       config::read_config_file,

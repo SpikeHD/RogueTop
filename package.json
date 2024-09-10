@@ -13,19 +13,19 @@
     "lint:fix": "eslint --fix ./src ./ext/**/*.ts"
   },
   "dependencies": {
-    "@tauri-apps/api": ">=2.0.0-beta.0",
-    "@tauri-apps/plugin-shell": ">=2.0.0-beta.0",
-    "preact": "^10.16.0"
+    "@tauri-apps/api": "next",
+    "@tauri-apps/plugin-shell": "2.0.0-beta.4",
+    "preact": "^10.21.0"
   },
   "devDependencies": {
-    "@preact/preset-vite": "^2.5.0",
-    "@tauri-apps/cli": ">=2.0.0-beta.0",
-    "esbuild": "^0.21.1",
+    "@preact/preset-vite": "^2.8.2",
+    "@tauri-apps/cli": "next",
+    "esbuild": "^0.21.2",
     "eslint": "^8.57.0",
-    "globals": "^15.1.0",
+    "globals": "^15.2.0",
     "internal-ip": "^7.0.0",
-    "typescript": "^5.0.2",
+    "typescript": "^5.4.5",
     "typescript-eslint": "^7.8.0",
-    "vite": "^5.0.0"
+    "vite": "^5.2.11"
   }
 }

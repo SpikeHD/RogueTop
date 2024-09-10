@@ -8,6 +8,8 @@ on:
       - 'package.json'
       - 'src-tauri/**/*'
       - 'src/**/*'
+    branches:
+      - main
   pull_request:
     paths:
       - '.github/workflows/build.yml'
@@ -169,8 +171,7 @@ jobs:
       # For lite installs
       - name: (Online) Create empty resource
         if: matrix.features != 'offline'
-        run: |
-          touch game.dat
+        run: touch game.dat
   
       - name: (Most) Build
         # If we are compiling for Windows ARM, we can only support NSIS
@@ -204,7 +205,7 @@ jobs:
         
       # paths:
       # Windows:
-      # - src-tauri/target/${{ matrix.config.target }}/release/PokeRogue.exe
+      # - src-tauri/target/${{ matrix.config.target }}/release/roguetop.exe
       # Ubuntu:
       # - src-tauri/target/${{ matrix.config.target }}/release/pokerogue
       # MacOS:
@@ -212,13 +213,13 @@ jobs:
       - name: (Windows) Compress build
         if: matrix.config.platform == 'windows-latest'
         run: cd src-tauri/target/${{ matrix.config.target }}/release && 7z a -tzip -mx9 RogueTop.zip 
-          PokeRogue.exe
+          roguetop.exe
           config.json
           _up_
 
       - name: (Linux) Compress build
         if: matrix.config.platform == 'ubuntu-latest'
-        run: cd src-tauri/target/${{ matrix.config.target }}/release && tar -czvf roguetop.tar.gz poke-rogue config.json _up_
+        run: cd src-tauri/target/${{ matrix.config.target }}/release && tar -czvf roguetop.tar.gz roguetop config.json _up_
 
       # Windows portable
       - name: (Windows) Upload portable
@@ -281,6 +282,114 @@ jobs:
         with:
           name: roguetop-${{ matrix.features }}-${{ matrix.config.target }}-dmg
           path: src-tauri/target/${{ matrix.config.target }}/release/bundle/dmg/*.dmg
+
+  build_android:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions-rust-lang/setup-rust-toolchain@v1.8
+      - uses: pnpm/action-setup@v3
+        with:
+          version: latest
+
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup node
+        uses: actions/setup-node@v4
+        with:
+          node-version: latest
+
+      - name: Setup Java
+        uses: actions/setup-java@v3
+        with:
+          distribution: 'temurin'
+          java-version: 17
+
+      - name: Install vcpkg
+        uses: lukka/run-vcpkg@v11
+        with:
+          vcpkgGitCommitId: '3508985146f1b1d248c67ead13f8f54be5b4f5da'
+
+      - name: Install using vcpkg
+        run: vcpkg install --triplet arm64-android --x-install-root ${{ github.workspace }}/packages
+
+      - name: Set OPENSSL_DIR
+        run: echo "OPENSSL_DIR=${{ github.workspace }}/packages/arm64-android/" >> $GITHUB_ENV
+  
+      - name: Setup Android SDK
+        uses: android-actions/setup-android@v3
+        
+      - name: Install NDK with SDK
+        run: sdkmanager --install ndk-bundle
+
+      - name: Set NDK_HOME
+        run: echo "NDK_HOME=$ANDROID_HOME/ndk/$(ls -1 $ANDROID_HOME/ndk | head -1)" >> $GITHUB_ENV
+
+      - name: Add Android targets
+        run: rustup target add aarch64-linux-android armv7-linux-androideabi i686-linux-android x86_64-linux-android
+        
+      - name: Create empty game.dat
+        run: touch game.dat
+
+      - name: Install dependencies
+        run: pnpm install
+
+      - name: Build injection extension
+        run: pnpm build:ext
+
+      - name: Build for Android
+        run: pnpm tauri android build
+        env:
+          RUSTFLAGS: -Awarnings
+
+      - name: Upload universal APK
+        uses: actions/upload-artifact@v3
+        with:
+          name: roguetop-android-universal-apk
+          path: src-tauri/gen/android/app/build/outputs/apk/universal/release/app-universal-release-unsigned.apk
+
+      - name: Upload universal ABB
+        uses: actions/upload-artifact@v3
+        with:
+          name: roguetop-android-universal-aab
+          path: src-tauri/gen/android/app/build/outputs/bundle/universalRelease/app-universal-release.aab
+
+  build_ios:
+    runs-on: macos-latest
+    steps:
+      - uses: actions-rust-lang/setup-rust-toolchain@v1.8
+      - uses: pnpm/action-setup@v3
+        with:
+          version: latest
+
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup node
+        uses: actions/setup-node@v4
+        with:
+          node-version: latest
+
+      - name: Add iOS target
+        run: rustup target add aarch64-apple-ios
+
+      - name: Install cocoapods
+        run: brew install cocoapods
+
+      - name: Install dependencies
+        run: pnpm install
+
+      - name: Build injection extension
+        run: pnpm build:ext
+
+      - name: Create empty game.dat
+        run: touch game.dat
+
+      - name: Build for iOS
+        run: pnpm tauri ios build
+
+      - name: DEBUG find the ipa
+        run: find ./src-tauri/target/aarch64-apple-ios/release -name '*.ipa'
 
   release:
     needs: build
