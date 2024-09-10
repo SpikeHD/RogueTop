@@ -203,7 +203,7 @@ jobs:
         
       # paths:
       # Windows:
-      # - src-tauri/target/${{ matrix.config.target }}/release/PokeRogue.exe
+      # - src-tauri/target/${{ matrix.config.target }}/release/roguetop.exe
       # Ubuntu:
       # - src-tauri/target/${{ matrix.config.target }}/release/pokerogue
       # MacOS:
@@ -211,7 +211,7 @@ jobs:
       - name: (Windows) Compress build
         if: matrix.config.platform == 'windows-latest'
         run: cd src-tauri/target/${{ matrix.config.target }}/release && 7z a -tzip -mx9 RogueTop.zip 
-          PokeRogue.exe
+          roguetop.exe
           config.json
           _up_
 
