@@ -2,11 +2,22 @@
 
 This directory contains mod examples and documentation in order for you to better wrap your head around how it works. I promise it's super easy!
 
-*\*For now, mods are only supported in offline mode. This will probably change in the future!*
+*\*For now, replacer mods are only supported in offline mode. Plugins are supported in both. This will probably change in the future!*
+
+# Table of Contents
+
+1. [How Modding Works](#how-modding-works)
+2. [How to Activate Mods](#how-to-activate-mods)
+3. [How do I Create a Texture/Audio/Font Mod?](#how-do-i-create-a-textureaudiofont-mod)
+4. [Another Example - Audio Mod](#another-example---audio-mod)
+5. [Creating a Plugin](#creating-a-plugin)
+6. [Good Luck!](#good-luck)
 
 ## How Modding Works
 
-Mods exist in their own folders. So, if you make or download a mod called "MyMod", the mods folder should look like so:
+There are two kinds of mods, "replacers" and "plugins". Replacers are mods that replace files in the game, such as textures or audio. Plugins are JavaScript files that may change the game's behavior.
+
+Mods exist in their own folders. So, if you make or download a replacer mod called "MyMod", the mods folder should look like so:
 ```sh
 mods/
   # Your mod goes into "replacers" because it replaces files in the game
@@ -15,7 +26,15 @@ mods/
       # ... all of your files
 ```
 
-When a new folder is added to a users mods directory, it is automatically added to the mod list.
+...or a plugin mod called "MyPlugin":
+```sh
+mods/
+  # Your mod goes into "plugins" because it changes the game's behavior
+  plugins/
+    MyPlugin.js
+```
+
+When a new mod is added to a user's mod directories, it is automatically added to the mod list.
 
 ## How to Activate Mods
 
@@ -64,6 +83,20 @@ MyMod/
 ```
 
 That's it! Your mod should now properly apply! You can verify this by starting a new game and selecting the Pokemon in the starter selection menu (if you have them unlocked).
+
+## Creating a Plugin
+
+Plugins are pretty open-ended, technically you can make this do *anything*. Some examples would be changing values, names of things, or just how the game works. Here are some specific notes regarding plugins:
+
+* RogueTop doesn't have any special API helpers for plugins... [yet](https://github.com/SpikeHD/RogueTop/issues/new/choose)
+* Plugins must be singular JavaScript files (no `import`s!). If you want to bundle several files together, or like TypeScript, my personal reccomendation is to use a bundler like [esbuild](https://esbuild.github.io/).
+* Plugins are executed somewhat late in the loading cycle. If you need plugins to load early for some reason, feel free to make a feature request.
+
+A simple plugin that literally just logs something to the console would look like so:
+```js
+// MyPlugin.js
+console.log("Hello from MyPlugin!");
+```
 
 # Good Luck!
 

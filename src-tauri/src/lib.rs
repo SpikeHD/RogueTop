@@ -17,9 +17,11 @@ pub fn run() {
 
   tauri::Builder::default()
     .plugin(tauri_plugin_shell::init())
+    .plugin(tauri_plugin_gamepad::init())
     .plugin(init_plugin::init())
     .invoke_handler(tauri::generate_handler![
       util::is_dev,
+      util::screen::toggle_fullscreen,
       util::support::supports_offline,
       util::support::is_mobile,
       util::support::is_ios,
@@ -32,7 +34,8 @@ pub fn run() {
       config::get_config,
       game::launch,
       mods::open_mods_folder,
-      mods::replacer::get_replacer_list,
+      mods::get_mods_list,
+      mods::plugin::load_all_plugins
     ])
     .on_window_event(|_window, event| match event {
       tauri::WindowEvent::Destroyed { .. } => {

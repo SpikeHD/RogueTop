@@ -8,7 +8,7 @@ export function Mods() {
 
   useEffect(() => {
     (async () => {
-      const mods: string[] = await invoke('get_replacer_list')
+      const mods: string[] = await invoke('get_mods_list')
       setMods(mods)
     })()
   }, [])

@@ -1,6 +1,6 @@
 [package]
 name = "roguetop"
-version = "0.3.1"
+version = "0.4.0"
 description = "Online & Offline PokeRogue desktop client"
 authors = ["SpikeHD"]
 edition = "2021"
@@ -19,11 +19,12 @@ name = "roguetop_lib"
 crate-type = ["lib", "cdylib", "staticlib"]
 
 [build-dependencies]
-tauri-build = { version = "2.0.0-beta", features = [] }
+tauri-build = { version = "2.0.0-rc", features = [] }
 
 [dependencies]
-tauri = { version = "2.0.0-beta", features = [ "devtools" ] }
-tauri-plugin-shell = "2.0.0-beta"
+tauri = { version = "2.0.0-rc", features = [ "devtools" ] }
+tauri-plugin-shell = "2.0.0-rc"
+tauri-plugin-gamepad = "0.0.4"
 serde = { version = "1", features = ["derive"] }
 serde_json = "1.0.117"
 dirs = "5.0.1"
@@ -33,7 +34,8 @@ tiny_http = "0.12.0"
 mime_guess = "2.0.4"
 url-escape = "0.1.1"
 once_cell = "1.19.0"
-zip = "1.2.2"
+zip = "2.1.1"
+reqwest = { version = "0.12.4", features = [ "blocking" ] }
 open = "5.1.2"
 discord-rich-presence = "0.2.3"
 

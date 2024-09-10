@@ -52,16 +52,29 @@ pub fn get_mods_path() -> PathBuf {
       .parent()
       .unwrap()
       .join("mods")
-      .join("replacers")
   } else {
     let appdata = dirs::data_dir().unwrap_or_default();
-    appdata.join("roguetop").join("mods").join("replacers")
+    appdata.join("roguetop").join("mods")
   };
 
   // Create if doesn't exist
   if fs::metadata(&path).is_err() {
     fs::create_dir_all(&path).expect("Error creating mods dir");
+
+    let replacer_path = path.join("replacer");
+    let plugins_path = path.join("plugins");
+
+    fs::create_dir_all(replacer_path).expect("Error creating replacer dir");
+    fs::create_dir_all(plugins_path).expect("Error creating plugins dir");
   }
 
   path
+}
+
+pub fn get_replacers_path() -> PathBuf {
+  get_mods_path().join("replacers")
+}
+
+pub fn get_plugins_path() -> PathBuf {
+  get_mods_path().join("plugins")
 }

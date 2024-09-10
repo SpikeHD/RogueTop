@@ -14,6 +14,9 @@ on:
       - 'package.json'
       - 'src-tauri/**/*'
       - 'src/**/*'
+  # Nightly release
+  schedule:
+    - cron: '0 0 * * *'
 
 concurrency:
   group: ${{ github.ref }}-${{ github.workflow }}
@@ -106,6 +109,7 @@ jobs:
           sudo apt-get update
           sudo apt-get install -y libwebkit2gtk-4.1-dev \
             libsoup-3.0-dev \
+            libudev-dev \
             build-essential \
             curl \
             wget \
@@ -118,6 +122,7 @@ jobs:
         run: |
           sudo apt-get install -y \
             libc6:armhf \
+            libudev-dev:armhf \
             libwebkit2gtk-4.1-dev:armhf \
             libssl-dev:armhf \
             libsoup-3.0-dev:armhf \
@@ -128,6 +133,7 @@ jobs:
         run: |
           sudo apt-get install -y \
             libc6:arm64 \
+            libudev-dev:arm64 \
             libwebkit2gtk-4.1-dev:arm64 \
             libssl-dev:arm64 \
             libsoup-3.0-dev:arm64 \
@@ -364,8 +370,11 @@ jobs:
   release:
     needs: build
     runs-on: ubuntu-latest
-    if: startsWith(github.ref, 'refs/tags/')
+    if: startsWith(github.ref, 'refs/tags/') || github.event_name == 'schedule'
     steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
       # Download all artifacts from the build job
       - name: Download artifacts
         uses: actions/download-artifact@v4
@@ -402,11 +411,20 @@ jobs:
 
       - name: Create release using all artifacts
         uses: softprops/action-gh-release@v2
+        if: github.event_name != 'schedule'
         with:
           files: artifacts/**
           token: ${{ secrets.GITHUB_TOKEN }}
           # Release name is the tag name
-          name: ${{ github.ref_name }}
+          name: ${{ github.ref_name }} - ${{ github.sha }}
           draft: false
           generate_release_notes: true
           prerelease: false
+
+      # (nightly) upload artifacts to the nightly release
+      - name: Upload nightly artifacts
+        if: github.event_name == 'schedule'
+        run:
+          gh release upload nightly artifacts/**/* --clobber
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
