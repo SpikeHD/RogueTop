@@ -339,6 +339,8 @@ jobs:
 
       - name: Build for Android
         run: pnpm tauri android build
+        env:
+          RUSTFLAGS: -Awarnings
 
       - name: DEBUG find the apk
         run: find ./src-tauri/target/aarch64-linux-android/release -name '*.apk'
@@ -376,6 +378,8 @@ jobs:
 
       - name: Build for iOS
         run: pnpm tauri ios build
+        env:
+          RUSTFLAGS: -Awarnings
 
       - name: DEBUG find the ipa
         run: find ./src-tauri/target/aarch64-apple-ios/release -name '*.ipa'
