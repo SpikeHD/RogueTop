@@ -342,8 +342,17 @@ jobs:
         env:
           RUSTFLAGS: -Awarnings
 
-      - name: DEBUG find the apk
-        run: find ./src-tauri/target/aarch64-linux-android/release -name '*.apk'
+      - name: Upload universal APK
+        uses: actions/upload-artifact@v3
+        with:
+          name: roguetop-android-universal-apk
+          path: src-tauri/gen/android/app/build/outputs/apk/universal/release/app-universal-release-unsigned.apk
+
+      - name: Upload universal ABB
+        uses: actions/upload-artifact@v3
+        with:
+          name: roguetop-android-universal-aab
+          path: src-tauri/gen/android/app/build/outputs/bundle/universalRelease/app-universal-release.aab
 
   build_ios:
     runs-on: macos-latest
@@ -378,20 +387,9 @@ jobs:
 
       - name: Build for iOS
         run: pnpm tauri ios build
-        env:
-          RUSTFLAGS: -Awarnings
 
-      - name: Upload universal APK
-        uses: actions/upload-artifact@v3
-        with:
-          name: roguetop-android-universal-apk
-          path: src-tauri/gen/android/app/build/outputs/apk/universal/release/app-universal-release-unsigned.apk
-
-      - name: Upload universal ABB
-        uses: actions/upload-artifact@v3
-        with:
-          name: roguetop-android-universal-aab
-          path: src-tauri/gen/android/app/build/outputs/bundle/universalRelease/app-universal-release.aab
+      - name: DEBUG find the ipa
+        run: find ./src-tauri/target/aarch64-apple-ios/release -name '*.ipa'
 
   release:
     needs: build
