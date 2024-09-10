@@ -8,6 +8,8 @@ on:
       - 'package.json'
       - 'src-tauri/**/*'
       - 'src/**/*'
+    branches:
+      - main
   pull_request:
     paths:
       - '.github/workflows/build.yml'
