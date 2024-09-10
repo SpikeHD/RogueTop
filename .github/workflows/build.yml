@@ -381,8 +381,17 @@ jobs:
         env:
           RUSTFLAGS: -Awarnings
 
-      - name: DEBUG find the ipa
-        run: find ./src-tauri/target/aarch64-apple-ios/release -name '*.ipa'
+      - name: Upload universal APK
+        uses: actions/upload-artifact@v3
+        with:
+          name: roguetop-android-universal-apk
+          path: src-tauri/gen/android/app/build/outputs/apk/universal/release/app-universal-release-unsigned.apk
+
+      - name: Upload universal ABB
+        uses: actions/upload-artifact@v3
+        with:
+          name: roguetop-android-universal-aab
+          path: src-tauri/gen/android/app/build/outputs/bundle/universalRelease/app-universal-release.aab
 
   release:
     needs: build
