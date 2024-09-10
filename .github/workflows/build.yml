@@ -309,6 +309,7 @@ jobs:
         uses: lukka/run-vcpkg@v11
         with:
           vcpkgDirectory: '${{ github.workspace }}/vcpkg'
+          vcpkgGitCommitId: '3508985146f1b1d248c67ead13f8f54be5b4f5da'
 
       - name: Install OpenSSL for Android ARM64
         run: vcpkg install openssl:arm64-android
