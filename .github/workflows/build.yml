@@ -303,8 +303,16 @@ jobs:
           distribution: 'temurin'
           java-version: 17
 
-      - name: Install OpenSSL
-        run: sudo apt-get install -y pkg-config libssl-dev
+      - name: Install vcpkg
+        uses: lukka/run-vcpkg@v11
+        with:
+          vcpkgDirectory: '${{ github.workspace }}/vcpkg'
+
+      - name: Install OpenSSL for Android ARM64
+        run: vcpkg install openssl:arm64-android
+
+      - name: Set OPENSSL_DIR
+        run: echo "OPENSSL_DIR=${{ github.workspace }}/vcpkg/installed/arm64-android" >> $GITHUB_ENV
   
       - name: Setup Android SDK
         uses: android-actions/setup-android@v3
