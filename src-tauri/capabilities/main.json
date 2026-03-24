@@ -16,6 +16,8 @@
     "core:menu:default",
     "core:tray:default",
     "core:webview:allow-internal-toggle-devtools",
-    "gamepad:default"
+    "gamepad:default",
+    "shell:default",
+    "updater:default"
   ]
 }

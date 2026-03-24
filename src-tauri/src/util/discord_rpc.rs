@@ -6,7 +6,7 @@ static CLIENT_ID: &str = "1238914884586962974";
 static CLIENT: Mutex<Option<DiscordIpcClient>> = Mutex::new(None);
 
 pub fn connect_discord_rpc() -> Result<(), Box<dyn std::error::Error>> {
-  let mut client = DiscordIpcClient::new(CLIENT_ID)?;
+  let mut client = DiscordIpcClient::new(CLIENT_ID);
   client.connect()?;
 
   let mut global_client = CLIENT.lock().unwrap();

@@ -19,20 +19,18 @@ concurrency:
   group: ${{ github.ref }}-${{ github.workflow }}
   cancel-in-progress: true
 
-env:
-  CARGO_INCREMENTAL: 0
-
 jobs:
   tsc-eslint-checks:
     runs-on: ubuntu-latest
     steps:
+      - uses: actions/checkout@v4
+      - uses: pnpm/action-setup@v3
+
       - name: Install Node
         uses: actions/setup-node@v4
         with:
           node-version: latest
-
-      - uses: actions/checkout@v4
-      - uses: pnpm/action-setup@v3
+          cache: 'pnpm'
 
       - name: Install modules
         run: pnpm install

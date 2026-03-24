@@ -1,22 +1,22 @@
 <h1 align="center">
- <img height="100px" src="https://raw.githubusercontent.com/SpikeHD/roguetop/main/src-tauri/icons/icon.png" />
+ <img height="100px" src="https://raw.githubusercontent.com/mariolopjr/RogueTop/main/src-tauri/icons/icon.png" />
  <br />
  RogueTop
 </h1>
 <div align="center">
- <img src="https://img.shields.io/github/actions/workflow/status/SpikeHD/roguetop/build.yml" />
- <img src="https://img.shields.io/github/package-json/v/SpikeHD/roguetop" />
- <img src="https://img.shields.io/github/repo-size/SpikeHD/roguetop" />
+ <img src="https://img.shields.io/github/actions/workflow/status/mariolopjr/RogueTop/build.yml" />
+ <img src="https://img.shields.io/github/package-json/v/mariolopjr/RogueTop" />
+ <img src="https://img.shields.io/github/repo-size/mariolopjr/RogueTop" />
 </div>
 <div align="center">
- <img src="https://img.shields.io/github/commit-activity/m/SpikeHD/roguetop" />
- <img src="https://img.shields.io/github/release-date/SpikeHD/roguetop" />
- <img src="https://img.shields.io/github/stars/SpikeHD/roguetop" />
- <img src="https://img.shields.io/github/downloads/SpikeHD/roguetop/total" />
+ <img src="https://img.shields.io/github/commit-activity/m/mariolopjr/RogueTop" />
+ <img src="https://img.shields.io/github/release-date/mariolopjr/RogueTop" />
+ <img src="https://img.shields.io/github/stars/mariolopjr/RogueTop" />
+ <img src="https://img.shields.io/github/downloads/mariolopjr/RogueTop/total" />
 </div>
 
 <div align="center">
- Online and offline <a href="https://github.com/pagefaultgames/pokerogue">PokeRogue</a> client for Windows, Linux and MacOS.
+ Online and offline <a href="https://github.com/pagefaultgames/pokerogue">PokéRogue</a> client for Windows, Linux and MacOS.
  <br />
  https://discord.gg/agQ9mRdHMZ
 </div>
@@ -40,51 +40,51 @@
     <td width="30%">
       <div align="center">
         <span>x86_64:</span>
-        <a href="https://github.com/SpikeHD/RogueTop/releases/latest/download/roguetop-default-x86_64-pc-windows-msvc-msi.msi">Online-only</a>
+        <a href="https://github.com/mariolopjr/RogueTop/releases/latest/download/roguetop-default-x86_64-pc-windows-msvc-msi.msi">Online-only</a>
         <span>|</span>
-        <a href="https://github.com/SpikeHD/RogueTop/releases/latest/download/roguetop-offline-x86_64-pc-windows-msvc-msi.msi">Offline</a>
+        <a href="https://github.com/mariolopjr/RogueTop/releases/latest/download/roguetop-offline-x86_64-pc-windows-msvc-msi.msi">Offline</a>
         <br />
         <span>ARM64:</span>
-        <a href="https://github.com/SpikeHD/RogueTop/releases/latest/download/roguetop-default-aarch64-pc-windows-msvc-nsis.exe ">Online-only</a>
+        <a href="https://github.com/mariolopjr/RogueTop/releases/latest/download/roguetop-default-aarch64-pc-windows-msvc-nsis.exe ">Online-only</a>
         <span>|</span>
-        <a href="https://github.com/SpikeHD/RogueTop/releases/latest/download/roguetop-offline-aarch64-pc-windows-msvc-nsis.exe">Offline</a>
+        <a href="https://github.com/mariolopjr/RogueTop/releases/latest/download/roguetop-offline-aarch64-pc-windows-msvc-nsis.exe">Offline</a>
       </div>
     </td>
     <td width="30%">
       <div align="center">
         <span>x86_64:</span>
-        <a href="https://github.com/SpikeHD/RogueTop/releases/latest/download/roguetop-default-x86_64-apple-darwin-dmg.dmg">Online-only</a>
+        <a href="https://github.com/mariolopjr/RogueTop/releases/latest/download/roguetop-default-x86_64-apple-darwin-dmg.dmg">Online-only</a>
         <span>|</span>
-        <a href="https://github.com/SpikeHD/RogueTop/releases/latest/download/roguetop-offline-x86_64-apple-darwin-dmg.dmg">Offline</a>
+        <a href="https://github.com/mariolopjr/RogueTop/releases/latest/download/roguetop-offline-x86_64-apple-darwin-dmg.dmg">Offline</a>
         <br />
         <span>ARM64:</span>
-        <a href="https://github.com/SpikeHD/RogueTop/releases/latest/download/roguetop-default-aarch64-apple-darwin-dmg.dmg">Online-only</a>
+        <a href="https://github.com/mariolopjr/RogueTop/releases/latest/download/roguetop-default-aarch64-apple-darwin-dmg.dmg">Online-only</a>
         <span>|</span>
-        <a href="https://github.com/SpikeHD/RogueTop/releases/latest/download/roguetop-offline-aarch64-apple-darwin-dmg.dmg">Offline</a>
+        <a href="https://github.com/mariolopjr/RogueTop/releases/latest/download/roguetop-offline-aarch64-apple-darwin-dmg.dmg">Offline</a>
       </div>
     </td>
     <td width="30%">
       <div align="center">
         <span>x86_64:</span>
-        <a href="https://github.com/SpikeHD/RogueTop/releases/latest/download/roguetop-default-x86_64-unknown-linux-gnu-deb.deb">Online-only</a>
+        <a href="https://github.com/mariolopjr/RogueTop/releases/latest/download/roguetop-default-x86_64-unknown-linux-gnu-deb.deb">Online-only</a>
         <span>|</span>
-        <a href="https://github.com/SpikeHD/RogueTop/releases/latest/download/roguetop-offline-x86_64-unknown-linux-gnu-deb.deb">Offline</a>
+        <a href="https://github.com/mariolopjr/RogueTop/releases/latest/download/roguetop-offline-x86_64-unknown-linux-gnu-deb.deb">Offline</a>
         <br />
         <span>ARM64:</span>
-        <a href="https://github.com/SpikeHD/RogueTop/releases/latest/download/roguetop-default-aarch64-unknown-linux-gnu-deb.deb">Online-only</a>
+        <a href="https://github.com/mariolopjr/RogueTop/releases/latest/download/roguetop-default-aarch64-unknown-linux-gnu-deb.deb">Online-only</a>
         <span>|</span>
-        <a href="https://github.com/SpikeHD/RogueTop/releases/latest/download/roguetop-offline-aarch64-unknown-linux-gnu-deb.deb">Offline</a>
+        <a href="https://github.com/mariolopjr/RogueTop/releases/latest/download/roguetop-offline-aarch64-unknown-linux-gnu-deb.deb">Offline</a>
         <br />
         <span>ARMv7:</span>
-        <a href="https://github.com/SpikeHD/RogueTop/releases/latest/download/roguetop-default-armv7-unknown-linux-gnueabihf-deb.deb">Online-only</a>
+        <a href="https://github.com/mariolopjr/RogueTop/releases/latest/download/roguetop-default-armv7-unknown-linux-gnueabihf-deb.deb">Online-only</a>
         <span>|</span>
-        <a href="https://github.com/SpikeHD/RogueTop/releases/latest/download/roguetop-offline-armv7-unknown-linux-gnueabihf-deb.deb">Offline</a>
+        <a href="https://github.com/mariolopjr/RogueTop/releases/latest/download/roguetop-offline-armv7-unknown-linux-gnueabihf-deb.deb">Offline</a>
       </div>
     </td>
   </tr>
 </table>
 
-*You can also download portable versions for each platform, which you can find on the [releases](https://github.com/SpikeHD/RogueTop/releases/tag/nightly) page.* 
+*You can also download portable versions for each platform, which you can find on the [releases](https://github.com/mariolopjr/RogueTop/releases/tag/nightly) page.* 
 
 > [!NOTE]
 > ***MacOS Users***: If opening the app gives you "PokeRogue.app is damaged and cannot be opened", MacOS is lying to you and you may just need to run `sudo xattr -rd com.apple.quarantine /Applications/PokeRogue.app`.
@@ -97,7 +97,7 @@ RogueTop comes in two flavors, regular and "offline". Regular versions are very 
 
 ## Alternative Installation Methods
 
-You can also download the latest build from [GitHub Actions](https://www.github.com/SpikeHD/RogueTop/actions). Or, if you're feeling brave, you can [build it yourself](#building)!
+You can also download the latest build from [GitHub Actions](https://www.github.com/mariolopjr/RogueTop/actions). Or, if you're feeling brave, you can [build it yourself](#building)!
 
 # Table of Contents
 
@@ -114,11 +114,11 @@ You can also download the latest build from [GitHub Actions](https://www.github.
 # Features
 
 * Full offline mode
-* Mod support - see the [examples and documentation](https://github.com/SpikeHD/RogueTop/tree/main/examples)
+* Mod support - see the [examples and documentation](https://github.com/mariolopjr/RogueTop/tree/main/examples)
 * Discord RPC
 * Small binaries, not resource-heavy
-* Builds for platforms such as the Raspberry Pi - see the [releases](https://github.com/SpikeHD/RogueTop/releases/latest/) for a full list
-* Always up-to-date, in online mode at least :P
+* Builds for platforms such as the Raspberry Pi - see the [releases](https://github.com/mariolopjr/RogueTop/releases/latest/) for a full list
+* Always up-to-date, nightly is built nightly (lol) and follows the PokéRogue beta branch
 
 # Building
 
@@ -133,7 +133,7 @@ You can also download the latest build from [GitHub Actions](https://www.github.
 
 1. Clone the repository:
   ```sh
-  git clone git@github.com:SpikeHD/RogueTop.git
+  git clone git@github.com:mariolopjr/RogueTop.git
   ```
 2. Install the dependencies:
   ```sh
@@ -160,23 +160,26 @@ Your built files will be in the `src-tauri/target` directory.
 
 # TODO
 
-- [x] Bundled offline mode (directly in the binary, eg. should work on an airgapped machine)
-  - [x] Maybe move to bundled (eg. Tauri resource) but external/read from FS, no need for a 500mb binary lol
-  - [x] TODO finish this
-- [ ] Downloadable offline mode (update-able without redownloading a new binary every time)
-- [x] Separate "lite" builds that are online-only
-- [x] Hotkeys
-  - [x] Fullscreen
-  - [ ] TBD
+- [ ] Offline save file manager
+- [x] Controls
+  - [x] More keyboard controls
+  - [ ] Figure out better control schema for touch
 - [ ] Mobile support
-- [x] Add `.plist` for MacOS to solve HTTP issue
+  - [ ] iOS
+  - [ ] Android
+  - [ ] Linux handhelds (probably not possible, but would be cool)
 - [x] Mod system/support?
-  - [x] Binding of Isaac-like texture replacements?
-  - [x] JS-based mods?
+  - [x] Binding of Isaac-like texture replacements
+  - [x] JS-based mods
   - [ ] Config in UI
   - [ ] Load from ZIP (mods could get quite big, would make them easier to distribute)
-- [ ] ~~Theme system/support?~~ This is basically just the mod system
+- [ ] Auto-updates for non-portable releases
 
 # Contributing
 
 Issues, PRs, etc. are all welcome!
+
+# Credits
+
+Huge credits to SpikeHD that this repo was forked from for doing all the hard work to get this actually working. I was working on my own tauri version of the Admiral-Billy repo (since I wanted to avoid Electron) and thankfully came cross SpikeHD's repo early into development. Thank you!!
+

@@ -21,7 +21,7 @@ export function Checkbox(props: Props) {
         checked={checked}
         onChange={() => {
           setChecked(!checked)
-          props.onChange && props.onChange(!checked)
+          props.onChange?.(!checked)
         }}
       />
 

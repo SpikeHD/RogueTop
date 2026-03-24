@@ -32,7 +32,7 @@ pub fn launch(app: tauri::AppHandle) -> bool {
     }
   }
 
-  if let Some(mut win) = app.get_webview_window("main") {
+  if let Some(win) = app.get_webview_window("main") {
     win.navigate(url).unwrap_or_default();
   }
 

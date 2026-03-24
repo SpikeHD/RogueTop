@@ -31,7 +31,6 @@ async function init() {
 
   // load user plugins
   console.log('Loading user plugins...')
-  // @ts-expect-error womp womp
   await __TAURI_INTERNALS__.invoke('load_all_plugins')
 
   // Inject the notification section
@@ -50,11 +49,10 @@ async function init() {
 
 function proxyFetch() {
   // overwrite fetch to send to the Tauri backend
-  // @ts-expect-error womp womp
   window.nativeFetch = window.fetch
 
-  // @ts-expect-error womp womp
-  window.fetch = async (url: string, options: RequestInit) => {
+  window.fetch = async (input: RequestInfo | URL, init?: RequestInit) => {
+    const url = input.toString()
     // Offline: intercept both localhost:8001 (normal path) and api.pokerogue.net
     // Online: only intercept :8001 — api.pokerogue.net must pass through directly
     const shouldProxy = isOffline
@@ -63,14 +61,12 @@ function proxyFetch() {
 
     if (!shouldProxy) {
       // Forward to regular fetch
-      // @ts-expect-error womp womp
-      return window.nativeFetch(url, options)
+      return window.nativeFetch(input, init)
     }
 
-    // @ts-expect-error womp womp
     const response: { status: number, body: string } = await __TAURI_INTERNALS__.invoke('api_request', {
       url,
-      options: JSON.stringify(options ?? {})
+      options: JSON.stringify(init ?? {})
     })
 
     // Adherence to what most scripts will expect to have available when they are using fetch(). These have to pretend to be promises
